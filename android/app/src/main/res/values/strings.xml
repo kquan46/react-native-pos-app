@@ -1,3 +1,4 @@
 <resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">UtxEzo7d6HZJzaQxxFyKPyLekYYvEJmhHnQ-f</string>
     <string name="app_name">NhaTrangPOS</string>
 </resources>
