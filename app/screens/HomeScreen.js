@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, StatusBar } from 'react-native'
 //import AppNavigator from './app/navigation/AppNavigator'
 import AppContainer from '../containers/AppContainer'
 import MainContainer from '../containers/MainContainer'
-import TableContainer from '../containers/TableContainer'
+import TableAndDeliveryContainer from '../containers/TableAndDeliveryContainer'
 import OrderContainer from '../containers/OrderContainer'
 
 class HomeScreen extends Component {
@@ -12,7 +12,7 @@ class HomeScreen extends Component {
     return (
         <AppContainer>
           <MainContainer>
-            <TableContainer />
+            <TableAndDeliveryContainer />
             <OrderContainer />
           </MainContainer>
         </AppContainer>

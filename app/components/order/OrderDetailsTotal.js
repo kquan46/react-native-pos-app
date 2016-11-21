@@ -6,6 +6,8 @@ class OrderDetailsTotal extends Component {
     render () {
         return (
           <View style={styles.orderDetailsTotal}>
+            <Text>TotalItem</Text>
+            <Text>2</Text>
             <Text>TOTAL</Text>
             <Text>$74HKD</Text>
           </View>
