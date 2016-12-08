@@ -27,9 +27,10 @@ const styles = StyleSheet.create({
   delivery: {
     flexDirection: "row",
     justifyContent: "flex-start",
+    alignItems: "center",
     backgroundColor: "orange",
-    paddingTop: 20,
-    paddingBottom: 20
+    paddingTop: 15,
+    paddingBottom: 15
   }
 })
 

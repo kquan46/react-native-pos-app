@@ -15,7 +15,7 @@ class TableSubNumberList extends Component {
   render () {
     return (
       <View style={styles.tableSubNumberList}>
-        {this.state.tableSubNumberList.map(i => <TableSubNumber tableSubNumber={i.tableSubNumber} />)}
+        {this.state.tableSubNumberList.map(i => <TableSubNumber tableSubNumber={i[0].tableInfo.tableSubNumber} orderTable={i[0]} />)}
       </View>
     )
   }

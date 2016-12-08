@@ -1,6 +1,6 @@
 'use strict'
 import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
 class TableNumber extends Component {
   constructor(props) {
@@ -13,9 +13,11 @@ class TableNumber extends Component {
   render () {
     return (
       <View style={styles.tableNumber}>
-        <View style={styles.tableNumberHeading}>
-          <Text style={styles.text}>{this.state.tableNumber}</Text>
-        </View>
+        <TouchableOpacity>
+          <View style={styles.tableNumberHeading}>
+            <Text style={styles.text}>{this.state.tableNumber}</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -37,7 +39,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   text: {
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: 20,
   }
 })
 

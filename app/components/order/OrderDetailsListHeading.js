@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, } from 'react-native'
 
-class OrderDetailsHeading extends Component {
+class OrderDetailsListHeading extends Component {
     render () {
         return (
           <View style={styles.orderDetailsHeading}>
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
     }
 })
 
-module.exports = OrderDetailsHeading
+module.exports = OrderDetailsListHeading

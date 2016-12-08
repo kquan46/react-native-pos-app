@@ -1,15 +1,23 @@
 'use strict'
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
 class OrderActions extends Component {
     render () {
         return (
           <View style={styles.orderActions}>
-            <Text>Edit</Text>
-            <Text>Cancel</Text>
-            <Text>Print</Text>
-            <Text>Pay</Text>
+            <TouchableOpacity style={styles.button}>
+              <Text>Edit</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button}>
+              <Text>Cancel</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button}>
+              <Text>Print</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button}>
+              <Text>Pay</Text>
+            </TouchableOpacity>
           </View>
         )
     }
@@ -17,11 +25,16 @@ class OrderActions extends Component {
 
 const styles = StyleSheet.create({
     orderActions: {
-        flex: 1,
+        flex: 1.5,
         flexDirection: "row",
         justifyContent: "space-around",
-        alignItems: "center",
-        padding: 10
+        alignItems: "stretch"
+    },
+    button: {
+      flex: 1,
+      backgroundColor: "blue",
+      justifyContent: "center",
+      alignItems: "center"
     }
 })
 

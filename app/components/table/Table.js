@@ -9,15 +9,16 @@ class Table extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      table: this.props.table
+      tableNumber: this.props.tableNumber,
+      orderTable: this.props.orderTable
     }
   }
 
   render () {
     return (
       <View style={styles.table}>
-        <TableNumber tableNumber={this.state.table.tableNumber} />
-        <TableSubNumberList tableSubNumberList={this.state.table.tableSubNumberList} />
+        <TableNumber tableNumber={this.state.tableNumber} />
+        <TableSubNumberList tableSubNumberList={this.state.orderTable} />
       </View>
     )
   }
@@ -27,8 +28,8 @@ const styles = StyleSheet.create({
   table: {
     flexDirection: "row",
     justifyContent: "flex-start",
-    paddingTop: 20,
-    paddingBottom: 20
+    paddingTop: 15,
+    paddingBottom: 15
   }
 })
 

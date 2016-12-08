@@ -1,22 +1,25 @@
 'use strict'
 import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
 class TableSubNumber extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      tableSubNumber: this.props.tableSubNumber
+      tableSubNumber: this.props.tableSubNumber,
+      orderTable: this.props.orderTable
     }
   }
 
   render () {
     return (
-      <View style={styles.tableSubNumber}>
-        <View style={styles.table}>
-          <Text>{this.state.tableSubNumber}</Text>
+      <TouchableOpacity>
+        <View style={styles.tableSubNumber}>
+          <View style={styles.table}>
+            <Text style={styles.text}>{this.state.tableSubNumber}</Text>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
     )
   }
 }
@@ -35,7 +38,11 @@ const styles = StyleSheet.create({
     borderRadius: HEIGHT/2,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "green"
+    backgroundColor: "green",
+  },
+  text: {
+    textAlign: "center",
+    fontSize: 20
   }
 })
 

@@ -1,6 +1,6 @@
 'use strict'
 import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
 
 
@@ -15,9 +15,11 @@ class DeliverySection extends Component {
   render () {
     return (
       <View style={styles.deliverySection}>
-        <View style={styles.deliverySectionHeading}>
-          <Text style={styles.text}>外賣</Text>
-        </View>
+        <TouchableOpacity>
+          <View style={styles.deliverySectionHeading}>
+            <Text style={styles.text}>外賣</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -39,7 +41,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   text: {
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: 20
   }
 })
 

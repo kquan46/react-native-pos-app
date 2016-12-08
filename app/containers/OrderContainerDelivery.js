@@ -2,29 +2,25 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 
-import OrderTableInfo from '../components/order/OrderTableInfo'
+import OrderInfoTable from '../components/order/OrderInfoTable'
+import OrderInfoDelivery from '../components/order/OrderInfoDelivery'
 import OrderDetails from '../components/order/OrderDetails'
 import OrderActions from '../components/order/OrderActions'
 
-
-const order = [
-  {order_number: "1", dinein_tablenumber: "5", dinein_subtablenumber: "B", dinein_numofpeople: 3},
-  {order_number: "2", dinein_tablenumber: "5", dinein_subtablenumber: "C", dinein_numofpeople: 2},
-  {order_number: "3", dinein_tablenumber: "1", dinein_subtablenumber: "A", dinein_numofpeople: 2}
-]
-
-class OrderContainer extends Component {
+class OrderContainerDelivery extends Component {
     constructor(props) {
       super(props)
       this.state = {
-
+        orderType: "",
+        order: [],
+        orderInfoDelivery: ""
       }
     }
 
     render () {
       return (
           <View style={styles.orderContainer}>
-            <OrderTableInfo />
+            <OrderInfoDelivery />
             <OrderDetails />
             <OrderActions />
           </View>
@@ -42,4 +38,4 @@ const styles = StyleSheet.create({
     }
 })
 
-module.exports = OrderContainer
+module.exports = OrderContainerDelivery

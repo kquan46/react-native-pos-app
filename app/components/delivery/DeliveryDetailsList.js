@@ -15,7 +15,7 @@ class DeliveryDetailsList extends Component {
   render () {
     return (
       <View style={styles.deliveryDetailsList}>
-        {this.state.deliveryDetailsList.map(i => <DeliveryDetails deliveryDetails={i} />)}
+        {this.state.deliveryDetailsList.map(i => <DeliveryDetails key={i.orderNumber} deliveryDetails={i} />)}
       </View>
     )
   }
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     flex: 5,
     flexDirection: "row",
     justifyContent: "flex-start",
-    alignItems: "center"
+    alignItems: "stretch"
   }
 })
 

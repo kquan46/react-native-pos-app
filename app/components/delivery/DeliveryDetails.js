@@ -1,6 +1,6 @@
 'use strict'
 import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
 
 
@@ -8,18 +8,23 @@ class DeliveryDetails extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      deliveryDetails: this.props.deliveryDetails
+      orderNumber: this.props.deliveryDetails.orderNumber,
+      orderStatus: this.props.deliveryDetails.orderStatus,
+      deliveryInfo: this.props.deliveryDetails.deliveryInfo,
+      orderList: this.props.deliveryDetails.orderList
     }
   }
 
   render () {
     return (
-      <View style={styles.deliveryDetailsContainer}>
-        <View style={styles.deliveryDetails}>
-          <Text>{this.state.deliveryDetails.delivery_address}</Text>
-          <Text>{this.state.deliveryDetails.delivery_phonenumber}</Text>
+      <TouchableOpacity>
+        <View style={styles.deliveryDetailsContainer}>
+          <View style={styles.deliveryDetails}>
+            <Text>{this.state.deliveryInfo.deliveryAddress}</Text>
+            <Text>{this.state.deliveryInfo.deliveryPhoneNumber}</Text>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
     )
   }
 }
