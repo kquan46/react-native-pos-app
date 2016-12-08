@@ -94,8 +94,7 @@ class HomeScreen extends Component {
     return (
         <AppContainer>
           <MainContainer>
-            <TableAndDeliveryContainer orderTable={this.state.orderTable} orderDelivery={this.state.orderDelivery} />
-            <OrderContainerTable />
+            <Text>NhaTrangPOS</Text>
           </MainContainer>
         </AppContainer>
     )
