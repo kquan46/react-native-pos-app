@@ -12,7 +12,7 @@ import OrderContainerTable from '../containers/OrderContainerTable'
 
 const order_delivery = [
   {
-    order_number: 201611300002,
+    orderNumber: 201611300002,
     orderStatus: {numOfItems: 4, totalPrice: 101, payStatus: "notPaid", date: "2016/09/12", paidTime: "", startTime: "12:30"},
     deliveryInfo: {deliveryAddress: "250鴨寮街", deliveryPhoneNumber: "25800983", notes: "extra chopsticks"},
     orderList: [
@@ -29,7 +29,7 @@ const order_delivery = [
     ]
   },
   {
-    order_number: 201611300004,
+    orderNumber: 201611300004,
     orderStatus: {numOfItems: 7, totalPrice: 98, payStatus: "notPaid", date: "2016/09/12", paidTime: "", startTime: "13:09"},
     deliveryInfo: {deliveryAddress: "68南昌街", deliveryPhoneNumber: "66534621", notes: ""},
     orderList: [

@@ -8,14 +8,14 @@ class TableSubNumberList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      tableSubNumberList: this.props.tableSubNumberList
     }
   }
 
   render () {
     return (
       <View style={styles.tableSubNumberList}>
-        {this.props.tableSubNumberList.map(i => <TableSubNumber tableSubNumber={i[0].tableInfo.tableSubNumber} orderTable={i[0]} />)}
+        {console.log(this.props.tableSubNumberList)}
+        {this.props.tableSubNumberList.map(i => <TableSubNumber key={i.orderNumber} tableSubNumber={i.tableInfo.tableSubNumber} orderTable={i} />)}
       </View>
     )
   }

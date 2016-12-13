@@ -8,14 +8,13 @@ class DeliveryDetailsList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      deliveryDetailsList: this.props.deliveryDetailsList
     }
   }
 
   render () {
     return (
       <View style={styles.deliveryDetailsList}>
-        {this.state.deliveryDetailsList.map(i => <DeliveryDetails key={i.orderNumber} deliveryDetails={i} />)}
+        {this.props.deliveryDetailsList.map(i => <DeliveryDetails key={i.orderNumber} deliveryDetails={i} />)}
       </View>
     )
   }

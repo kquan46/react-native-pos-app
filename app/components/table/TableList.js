@@ -8,7 +8,6 @@ class TableList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      tableList: this.props.tableList
     }
   }
 
@@ -16,9 +15,8 @@ class TableList extends Component {
     let result = []
 
     this.props.tableList.map(function(i) {
-      if (i.tableInfo.tableNumber===tableNumber) {
-        (!result[tableNumber]) ? result[tableNumber] = [i] : result[tableNumber].push(i)
-      }
+      if (i.tableInfo.tableNumber===tableNumber)
+        result.push(i)
     })
     return result
   }
@@ -27,13 +25,13 @@ class TableList extends Component {
     return (
       <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
       <View style={styles.tableList}>
-        <Table key="1" tableNumber="1" orderTable={this.groupByTable(1)} />
-        <Table key="2" tableNumber="2" orderTable={this.groupByTable(2)} />
-        <Table key="3" tableNumber="3" orderTable={this.groupByTable(3)} />
-        <Table key="4" tableNumber="4" orderTable={this.groupByTable(4)} />
-        <Table key="5" tableNumber="5" orderTable={this.groupByTable(5)} />
-        <Table key="6" tableNumber="6" orderTable={this.groupByTable(6)} />
-        <Table key="7" tableNumber="7" orderTable={this.groupByTable(7)} />
+        <Table key="1" tableNumber="1" orderTable={this.groupByTable("1")} />
+        <Table key="2" tableNumber="2" orderTable={this.groupByTable("2")} />
+        <Table key="3" tableNumber="3" orderTable={this.groupByTable("3")} />
+        <Table key="4" tableNumber="4" orderTable={this.groupByTable("4")} />
+        <Table key="5" tableNumber="5" orderTable={this.groupByTable("5")} />
+        <Table key="6" tableNumber="6" orderTable={this.groupByTable("6")} />
+        <Table key="7" tableNumber="7" orderTable={this.groupByTable("7")} />
       </View>
       </ScrollView>
     )

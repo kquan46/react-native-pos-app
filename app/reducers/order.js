@@ -4,7 +4,7 @@ const order_table = [
   {
     orderNumber: 201611300001,
     orderStatus: {numOfItems: 4, totalPrice: 101, payStatus: "notPaid", date: "2016/09/12", paidTime: "", startTime: "12:30"},
-    tableInfo: {tableNumber: 2, tableSubNumber: "A", numOfPeople: 4},
+    tableInfo: {tableNumber: "2", tableSubNumber: "A", numOfPeople: 4},
     orderList: {
       foodItems: [
         {name: "咖喱牛腩飯", customization: "少飯,走蒜", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "12:35", payStatus: "notPaid", base: "飯", ingredients: {ingredient1: "咖喱牛腩", ingredient2: "", ingredient3: "", ingredient4: ""}},
@@ -22,7 +22,7 @@ const order_table2 = [
   {
     orderNumber: 201611300002,
     orderStatus: {numOfItems: 2, totalPrice: 74, payStatus: "notPaid", date: "2016/09/12", paidTime: "", startTime: "18:30"},
-    tableInfo: {tableNumber: 1, tableSubNumber: "A", numOfPeople: 3},
+    tableInfo: {tableNumber: "1", tableSubNumber: "A", numOfPeople: 3},
     orderList: {
       foodItems: [
         {name: "咖喱牛腩飯", customization: "少飯,走蒜", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "18:30", payStatus: "notPaid", base: "飯", ingredients: {ingredient1: "咖喱牛腩", ingredient2: "", ingredient3: "", ingredient4: ""}},
@@ -34,7 +34,7 @@ const order_table2 = [
   {
     orderNumber: 201611300003,
     orderStatus: {numOfItems: 2, totalPrice: 46, payStatus: "notPaid", date: "2016/09/12", paidTime: "", startTime: "13:09"},
-    tableInfo: {tableNumber: 5, tableSubNumber: "B", numOfPeople: 2},
+    tableInfo: {tableNumber: "1", tableSubNumber: "B", numOfPeople: 2},
     orderList: {
       foodItems: [],
       drinkItems: [
