@@ -10,22 +10,14 @@ class OrderContainerTable extends Component {
     constructor(props) {
       super(props)
       this.state = {
-        orderType: "",
-        order: [],
-        orderInfoTable: ""
       }
     }
 
     render () {
       return (
           <View style={styles.orderContainer}>
-            <OrderInfoTable
-              tableNumber={this.state.orderInfoTable.tableNumber}
-              tableSubNumber={this.state.orderInfoTable.tableSubNumbr}
-              numOfPeople={this.state.orderInfoTable.numOfPeople}
-              date={this.state.orderInfoTable.date}
-              startTime={this.state.orderInfoTable.startTime} />
-            <OrderDetails />
+            <OrderInfoTable orderTableInfo={this.props.order.tableInfo} orderStatus={this.props.order.orderStatus} />
+            <OrderDetails orderList={this.props.order.orderList} orderStatus={this.props.order.orderStatus} />
             <OrderActions />
           </View>
       )
@@ -34,7 +26,7 @@ class OrderContainerTable extends Component {
 
 const styles = StyleSheet.create({
     orderContainer: {
-        flex: 2.5,
+        flex: 3,
         flexDirection: "column",
         justifyContent: "space-between",
         alignItems: "stretch",

@@ -6,18 +6,14 @@ class OrderDetailsTotal extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      numOfItems: (this.props.numOfItems),
-      totalPrice: (this.props.totalPrice)
     }
   }
 
   render () {
     return (
       <View style={styles.orderDetailsTotal}>
-        <Text>TotalItem</Text>
-        <Text>{this.state.numOfItems}</Text>
-        <Text>TOTAL</Text>
-        <Text>{this.state.totalPrice}</Text>
+        <Text style={styles.heading}>Total Items: {this.props.numOfItems}</Text>
+        <Text style={styles.heading}>TOTAL: ${this.props.totalPrice}</Text>
       </View>
     )
   }
@@ -27,11 +23,14 @@ const styles = StyleSheet.create({
   orderDetailsTotal: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "flex-end",
+    justifyContent: "space-around",
     paddingLeft: 10,
     paddingRight: 10,
     paddingTop: 10,
     paddingBottom: 10
+  },
+  heading: {
+    fontSize: 20
   }
 })
 

@@ -15,7 +15,7 @@ class TableNumber extends Component {
       <View style={styles.tableNumber}>
         <TouchableOpacity>
           <View style={styles.tableNumberHeading}>
-            <Text style={styles.text}>{this.state.tableNumber}</Text>
+            <Text style={styles.text}>{this.props.tableNumber}</Text>
           </View>
         </TouchableOpacity>
       </View>

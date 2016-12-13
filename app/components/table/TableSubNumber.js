@@ -1,27 +1,36 @@
 'use strict'
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as orderActions from '../../actions/orderActions'
 
 class TableSubNumber extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      tableSubNumber: this.props.tableSubNumber,
-      orderTable: this.props.orderTable
     }
+  }
+
+  selectTable(orderTable) {
+    this.props.selectOrder(orderTable)
   }
 
   render () {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => {this.selectTable(this.props.orderTable) }}>
         <View style={styles.tableSubNumber}>
           <View style={styles.table}>
-            <Text style={styles.text}>{this.state.tableSubNumber}</Text>
+            <Text style={styles.text}>{this.props.tableSubNumber}</Text>
           </View>
         </View>
       </TouchableOpacity>
     )
   }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(orderActions, dispatch)
 }
 
 const HEIGHT = 70
@@ -46,4 +55,4 @@ const styles = StyleSheet.create({
   }
 })
 
-module.exports = TableSubNumber
+module.exports = connect(null, mapDispatchToProps)(TableSubNumber)

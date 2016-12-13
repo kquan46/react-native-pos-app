@@ -17,8 +17,8 @@ class Table extends Component {
   render () {
     return (
       <View style={styles.table}>
-        <TableNumber tableNumber={this.state.tableNumber} />
-        <TableSubNumberList tableSubNumberList={this.state.orderTable} />
+        <TableNumber tableNumber={this.props.tableNumber} />
+        <TableSubNumberList tableSubNumberList={this.props.orderTable} />
       </View>
     )
   }

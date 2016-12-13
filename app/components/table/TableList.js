@@ -1,6 +1,6 @@
 'use strict'
 import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, ScrollView } from 'react-native'
 
 import Table from './Table'
 
@@ -15,7 +15,7 @@ class TableList extends Component {
   groupByTable(tableNumber) {
     let result = []
 
-    this.state.tableList.map(function(i) {
+    this.props.tableList.map(function(i) {
       if (i.tableInfo.tableNumber===tableNumber) {
         (!result[tableNumber]) ? result[tableNumber] = [i] : result[tableNumber].push(i)
       }
@@ -25,6 +25,7 @@ class TableList extends Component {
 
   render () {
     return (
+      <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
       <View style={styles.tableList}>
         <Table key="1" tableNumber="1" orderTable={this.groupByTable(1)} />
         <Table key="2" tableNumber="2" orderTable={this.groupByTable(2)} />
@@ -32,7 +33,9 @@ class TableList extends Component {
         <Table key="4" tableNumber="4" orderTable={this.groupByTable(4)} />
         <Table key="5" tableNumber="5" orderTable={this.groupByTable(5)} />
         <Table key="6" tableNumber="6" orderTable={this.groupByTable(6)} />
+        <Table key="7" tableNumber="7" orderTable={this.groupByTable(7)} />
       </View>
+      </ScrollView>
     )
   }
 }

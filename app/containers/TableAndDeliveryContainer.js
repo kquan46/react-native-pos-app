@@ -18,7 +18,7 @@ class TableAndDeliveryContainer extends Component {
     return (
         <View style={styles.tableAndDeliveryContainer}>
           <Delivery deliveryDetailsList={this.state.delivery}/>
-          <TableList tableList={this.state.tableList} />
+          <TableList tableList={this.props.orderTable} />
         </View>
     )
   }

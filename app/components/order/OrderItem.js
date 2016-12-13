@@ -17,24 +17,24 @@ class OrderItem extends Component {
   }
 
   splitCustomization(customizations) {
-    
+
   }
 
   render () {
     return (
       <View style={styles.orderItem}>
         <View style={styles.time}>
-          <Text>{this.state.orderTime}</Text>
+          <Text>{this.props.item.orderTime}</Text>
         </View>
         <OrderItemCustomization>
-          <Text>{this.state.name}</Text>
-          {this.splitCustomization(this.state.customization)}
+          <Text>{this.props.item.name}</Text>
+          {this.splitCustomization(this.props.item.customization)}
         </OrderItemCustomization>
         <View style={styles.text}>
-          <Text>{this.state.quantity}</Text>
+          <Text>{this.props.item.quantity}</Text>
         </View>
         <View style={styles.text}>
-          <Text style={styles.priceText}>{this.state.price}</Text>
+          <Text style={styles.priceText}>{this.props.item.price}</Text>
         </View>
       </View>
     )

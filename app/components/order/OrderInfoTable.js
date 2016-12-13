@@ -17,10 +17,10 @@ class OrderInfoTable extends Component {
   render () {
     return (
       <View style={styles.orderInfo}>
-        <Text>{this.state.tableNumber}:{this.state.tableSubNumber}</Text>
-        <Text>{this.state.numOfPeople}</Text>
-        <Text>{this.state.date}</Text>
-        <Text>{this.state.startTime}</Text>
+        {this.props.orderTableInfo.tableNumber ? <Text style={styles.heading}>{this.props.orderTableInfo.tableNumber}:{this.props.orderTableInfo.tableSubNumber}</Text> : null}
+        {this.props.orderTableInfo.numOfPeople ? <Text style={styles.heading}>{this.props.orderTableInfo.numOfPeople}人</Text> : null}
+        <Text style={styles.heading}>{this.props.orderStatus.date}</Text>
+        <Text style={styles.heading}>{this.props.orderStatus.startTime}</Text>
       </View>
     )
   }
@@ -34,6 +34,9 @@ const styles = StyleSheet.create({
       alignItems: "center",
       paddingLeft: 10,
       paddingRight: 10
+  },
+  heading: {
+    fontSize: 20
   }
 })
 
