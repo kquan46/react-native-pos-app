@@ -1,32 +1,38 @@
 'use strict'
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
-
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as orderActions from '../../actions/orderActions'
 
 
 class DeliveryDetails extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      orderNumber: this.props.deliveryDetails.orderNumber,
-      orderStatus: this.props.deliveryDetails.orderStatus,
-      deliveryInfo: this.props.deliveryDetails.deliveryInfo,
-      orderList: this.props.deliveryDetails.orderList
     }
+  }
+
+  selectOrder(order) {
+    this.props.selectOrder(order)
   }
 
   render () {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => {this.selectOrder(this.props.orderDelivery) }}>
         <View style={styles.deliveryDetailsContainer}>
           <View style={styles.deliveryDetails}>
-            <Text>{this.state.deliveryInfo.deliveryAddress}</Text>
-            <Text>{this.state.deliveryInfo.deliveryPhoneNumber}</Text>
+            <Text>{this.props.deliveryInfo.deliveryAddress}</Text>
+            <Text>{this.props.deliveryInfo.deliveryPhoneNumber}</Text>
           </View>
         </View>
       </TouchableOpacity>
     )
   }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(orderActions, dispatch)
 }
 
 const HEIGHT = 50
@@ -46,4 +52,4 @@ const styles = StyleSheet.create({
   }
 })
 
-module.exports = DeliveryDetails
+module.exports = connect(null, mapDispatchToProps)(DeliveryDetails)

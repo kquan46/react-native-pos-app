@@ -9,16 +9,14 @@ class TableAndDeliveryContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      tableList: (this.props.orderTable),
-      delivery: (this.props.orderDelivery)
     }
   }
 
   render () {
     return (
         <View style={styles.tableAndDeliveryContainer}>
-          <Delivery deliveryDetailsList={this.state.delivery}/>
-          <TableList tableList={this.props.orderTable} />
+          <Delivery deliveryDetailsList={this.props.deliveryOrders} />
+          <TableList tableList={this.props.tableOrders} />
         </View>
     )
   }

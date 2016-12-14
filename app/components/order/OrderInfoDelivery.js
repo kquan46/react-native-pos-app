@@ -6,20 +6,16 @@ class OrderInfoDelivery extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      deliveryAddress: (this.props.orderTable),
-      deliveryPhoneNumber: (this.props.orderDelivery),
-      date: (this.props.orderDate),
-      startTime: (this.props.startTime)
     }
   }
 
   render () {
     return (
       <View style={styles.orderInfo}>
-        <Text>{this.state.deliveryAddress}</Text>
-        <Text>{this.state.deliveryPhoneNumber}</Text>
-        <Text>{this.state.date}</Text>
-        <Text>{this.state.startTime}</Text>
+        <Text>{this.props.orderDeliveryInfo.deliveryAddress}</Text>
+        <Text>{this.props.orderDeliveryInfo.deliveryPhoneNumber}</Text>
+        <Text>{this.props.orderStatus.date}</Text>
+        <Text>{this.props.orderStatus.startTime}</Text>
       </View>
     )
   }

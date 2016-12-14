@@ -14,7 +14,7 @@ class DeliveryDetailsList extends Component {
   render () {
     return (
       <View style={styles.deliveryDetailsList}>
-        {this.props.deliveryDetailsList.map(i => <DeliveryDetails key={i.orderNumber} deliveryDetails={i} />)}
+        {this.props.deliveryDetailsList.map(i => <DeliveryDetails key={i.orderNumber} deliveryInfo={i.deliveryInfo} orderDelivery={i} />)}
       </View>
     )
   }

@@ -6,11 +6,6 @@ class OrderInfoTable extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      tableNumber: (this.props.tableNumber),
-      tableSubNumber: (this.props.tableSubNumber),
-      numOfPeople: (this.props.numOfPeople),
-      date: (this.props.orderDate),
-      startTime: (this.props.startTime)
     }
   }
 

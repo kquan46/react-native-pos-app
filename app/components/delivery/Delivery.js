@@ -9,7 +9,6 @@ class Delivery extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      deliveryDetailsList: this.props.deliveryDetailsList
     }
   }
 
@@ -17,7 +16,7 @@ class Delivery extends Component {
     return (
       <View style={styles.delivery}>
         <DeliverySection />
-        <DeliveryDetailsList deliveryDetailsList={this.state.deliveryDetailsList} />
+        <DeliveryDetailsList deliveryDetailsList={this.props.deliveryDetailsList} />
       </View>
     )
   }

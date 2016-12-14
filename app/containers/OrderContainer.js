@@ -7,21 +7,18 @@ import OrderInfoDelivery from '../components/order/OrderInfoDelivery'
 import OrderDetails from '../components/order/OrderDetails'
 import OrderActions from '../components/order/OrderActions'
 
-class OrderContainerDelivery extends Component {
+class OrderContainer extends Component {
     constructor(props) {
       super(props)
       this.state = {
-        orderType: "",
-        order: [],
-        orderInfoDelivery: ""
       }
     }
 
     render () {
       return (
           <View style={styles.orderContainer}>
-            <OrderInfoDelivery />
-            <OrderDetails />
+            {this.props.order.tableInfo ? <OrderInfoTable orderTableInfo={this.props.order.tableInfo} orderStatus={this.props.order.orderStatus} /> : <OrderInfoDelivery orderDeliveryInfo={this.props.order.deliveryInfo} orderStatus={this.props.order.orderStatus} />}
+            <OrderDetails orderList={this.props.order.orderList} orderStatus={this.props.order.orderStatus} />
             <OrderActions />
           </View>
       )
@@ -30,12 +27,12 @@ class OrderContainerDelivery extends Component {
 
 const styles = StyleSheet.create({
     orderContainer: {
-        flex: 2.5,
+        flex: 3,
         flexDirection: "column",
         justifyContent: "space-between",
         alignItems: "stretch",
-        backgroundColor: "purple",
+        backgroundColor: "#c059e5",
     }
 })
 
-module.exports = OrderContainerDelivery
+module.exports = OrderContainer

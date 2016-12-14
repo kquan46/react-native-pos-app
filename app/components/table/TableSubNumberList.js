@@ -14,7 +14,6 @@ class TableSubNumberList extends Component {
   render () {
     return (
       <View style={styles.tableSubNumberList}>
-        {console.log(this.props.tableSubNumberList)}
         {this.props.tableSubNumberList.map(i => <TableSubNumber key={i.orderNumber} tableSubNumber={i.tableInfo.tableSubNumber} orderTable={i} />)}
       </View>
     )
