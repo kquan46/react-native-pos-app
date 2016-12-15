@@ -35,7 +35,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(orderActions, dispatch)
 }
 
-const HEIGHT = 50
+const HEIGHT = 70
 
 const styles = StyleSheet.create({
   deliveryDetails: {

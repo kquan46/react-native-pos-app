@@ -9,18 +9,39 @@ class TableSubNumber extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      selected: this.props.order.orderNumber === this.props.orderTable.orderNumber ? "true" : "false"
     }
   }
 
   selectTable(orderTable) {
     this.props.selectOrder(orderTable)
+    this.state.selected = "true"
+  }
+
+  getSubTableOpacity(){
+    if (!this.props.orderTable.orderNumber)
+      return 0.2
+    else return 1
+  }
+
+  getSubTableBorder(){
+    if (this.props.order.orderNumber === this.props.orderTable.orderNumber)
+      return 4
+    else return 0
+  }
+
+  getSubTableColor(){
+    if (this.props.order.orderNumber === this.props.orderTable.orderNumber)
+      return "blue"
+    else return "green"
   }
 
   render () {
+
     return (
-      <TouchableOpacity onPress={() => {this.selectTable(this.props.orderTable) }}>
+      <TouchableOpacity onPress={() => {this.props.orderTable.orderNumber ? this.selectTable(this.props.orderTable) : null }}>
         <View style={styles.tableSubNumber}>
-          <View style={styles.table}>
+          <View style={styles.table} opacity={this.getSubTableOpacity()} borderWidth={this.getSubTableBorder()} backgroundColor={this.getSubTableColor()}>
             <Text style={styles.text}>{this.props.tableSubNumber}</Text>
           </View>
         </View>
@@ -33,7 +54,13 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(orderActions, dispatch)
 }
 
-const HEIGHT = 70
+function mapStateToProps(state) {
+  return {
+    order: state.order
+  }
+}
+
+const HEIGHT = 80
 
 const styles = StyleSheet.create({
   tableSubNumber: {
@@ -47,7 +74,7 @@ const styles = StyleSheet.create({
     borderRadius: HEIGHT/2,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "green",
+    borderColor: "black"
   },
   text: {
     textAlign: "center",
@@ -55,4 +82,4 @@ const styles = StyleSheet.create({
   }
 })
 
-module.exports = connect(null, mapDispatchToProps)(TableSubNumber)
+module.exports = connect(mapStateToProps, mapDispatchToProps)(TableSubNumber)

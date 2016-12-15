@@ -23,7 +23,7 @@ class TableNumber extends Component {
   }
 }
 
-const HEIGHT = 70
+const HEIGHT = 80
 
 const styles = StyleSheet.create({
   tableNumber: {

@@ -2,7 +2,7 @@ import * as types from '../actions/types'
 
 const order_delivery = [
   {
-    orderNumber: 201611300002,
+    orderNumber: 201611300005,
     orderStatus: {numOfItems: 4, totalPrice: 101, payStatus: "notPaid", date: "2016/09/12", paidTime: "", startTime: "12:30"},
     deliveryInfo: {deliveryAddress: "250鴨寮街", deliveryPhoneNumber: "25800983", notes: "extra chopsticks"},
     orderList: {
@@ -55,7 +55,7 @@ const order_table2 = [
   {
     orderNumber: 201611300002,
     orderStatus: {numOfItems: 2, totalPrice: 74, payStatus: "notPaid", date: "2016/09/12", paidTime: "", startTime: "18:30"},
-    tableInfo: {tableNumber: "1", tableSubNumber: "A", numOfPeople: 3},
+    tableInfo: {tableNumber: "1", tableSubNumber: "D", numOfPeople: 3},
     orderList: {
       foodItems: [
         {name: "咖喱牛腩飯", customization: "少飯,走蒜", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "18:30", payStatus: "notPaid", base: "飯", ingredients: {ingredient1: "咖喱牛腩", ingredient2: "", ingredient3: "", ingredient4: ""}},

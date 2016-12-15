@@ -30,8 +30,6 @@ class TableList extends Component {
         <Table key="3" tableNumber="3" orderTable={this.groupByTable("3")} />
         <Table key="4" tableNumber="4" orderTable={this.groupByTable("4")} />
         <Table key="5" tableNumber="5" orderTable={this.groupByTable("5")} />
-        <Table key="6" tableNumber="6" orderTable={this.groupByTable("6")} />
-        <Table key="7" tableNumber="7" orderTable={this.groupByTable("7")} />
       </View>
       </ScrollView>
     )
@@ -43,6 +41,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     justifyContent: "flex-start",
+    alignItems: "stretch",
     backgroundColor: "yellow",
   }
 })

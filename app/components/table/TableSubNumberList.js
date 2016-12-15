@@ -11,10 +11,24 @@ class TableSubNumberList extends Component {
     }
   }
 
+  getOrderSubTable(subTableNumber) {
+    let result = {}
+
+    this.props.tableSubNumberList.map(function(i) {
+      if (i.tableInfo.tableSubNumber===subTableNumber)
+        result = i
+    })
+    return result
+  }
+
   render () {
     return (
       <View style={styles.tableSubNumberList}>
-        {this.props.tableSubNumberList.map(i => <TableSubNumber key={i.orderNumber} tableSubNumber={i.tableInfo.tableSubNumber} orderTable={i} />)}
+        <TableSubNumber key="A" tableSubNumber="A" orderTable={this.getOrderSubTable("A")} />
+        <TableSubNumber key="B" tableSubNumber="B" orderTable={this.getOrderSubTable("B")} />
+        <TableSubNumber key="C" tableSubNumber="C" orderTable={this.getOrderSubTable("C")} />
+        <TableSubNumber key="D" tableSubNumber="D" orderTable={this.getOrderSubTable("D")} />
+        <TableSubNumber key="E" tableSubNumber="E" orderTable={this.getOrderSubTable("E")} />
       </View>
     )
   }
