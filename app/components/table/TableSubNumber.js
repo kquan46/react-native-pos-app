@@ -18,33 +18,23 @@ class TableSubNumber extends Component {
     this.state.selected = "true"
   }
 
-  getSubTableOpacity(){
+  getStyle(){
     if (!this.props.orderTable.orderNumber)
-      return 0.2
-    else return 1
-  }
-
-  getSubTableBorder(){
-    if (this.props.order.orderNumber === this.props.orderTable.orderNumber)
-      return 4
-    else return 0
-  }
-
-  getSubTableColor(){
-    if (this.props.order.orderNumber === this.props.orderTable.orderNumber)
-      return "blue"
-    else return "green"
+      return styles.tableWithoutProps
+    else if (this.props.order.orderNumber === this.props.orderTable.orderNumber)
+        return styles.tableSelected
+    else return styles.tableWithProps
   }
 
   render () {
 
     return (
-      <TouchableOpacity onPress={() => {this.props.orderTable.orderNumber ? this.selectTable(this.props.orderTable) : null }}>
-        <View style={styles.tableSubNumber}>
-          <View style={styles.table} opacity={this.getSubTableOpacity()} borderWidth={this.getSubTableBorder()} backgroundColor={this.getSubTableColor()}>
+      <TouchableOpacity style={styles.tableSubNumber} onPress={() => {this.props.orderTable.orderNumber ? this.selectTable(this.props.orderTable) : null }}>
+
+          <View style={this.getStyle()}>
             <Text style={styles.text}>{this.props.tableSubNumber}</Text>
           </View>
-        </View>
+
       </TouchableOpacity>
     )
   }
@@ -68,13 +58,36 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingRight: 10
   },
-  table: {
+  tableSelected: {
     height: HEIGHT,
     width: HEIGHT,
     borderRadius: HEIGHT/2,
     justifyContent: "center",
     alignItems: "center",
-    borderColor: "black"
+    borderColor: "black",
+    borderWidth: 4,
+    backgroundColor: "blue"
+  },
+  tableWithProps: {
+    height: HEIGHT,
+    width: HEIGHT,
+    borderRadius: HEIGHT/2,
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "black",
+    borderWidth: 0,
+    backgroundColor: "green"
+  },
+  tableWithoutProps: {
+    height: HEIGHT,
+    width: HEIGHT,
+    borderRadius: HEIGHT/2,
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "black",
+    borderWidth: 0,
+    backgroundColor: "green",
+    opacity: 0.2
   },
   text: {
     textAlign: "center",

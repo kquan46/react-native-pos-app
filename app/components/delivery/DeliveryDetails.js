@@ -17,11 +17,23 @@ class DeliveryDetails extends Component {
     this.props.selectOrder(order)
   }
 
+  getDeliveryBorder(){
+    if (this.props.order.orderNumber === this.props.orderDelivery.orderNumber)
+      return 4
+    else return 0
+  }
+
+  getDeliveryColor(){
+    if (this.props.order.orderNumber === this.props.orderDelivery.orderNumber)
+      return "blue"
+    else return "grey"
+  }
+
   render () {
     return (
       <TouchableOpacity onPress={() => {this.selectOrder(this.props.orderDelivery) }}>
         <View style={styles.deliveryDetailsContainer}>
-          <View style={styles.deliveryDetails}>
+          <View style={styles.deliveryDetails} borderWidth={this.getDeliveryBorder()}>
             <Text>{this.props.deliveryInfo.deliveryAddress}</Text>
             <Text>{this.props.deliveryInfo.deliveryPhoneNumber}</Text>
           </View>
@@ -35,6 +47,12 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(orderActions, dispatch)
 }
 
+function mapStateToProps(state) {
+  return {
+    order: state.order
+  }
+}
+
 const HEIGHT = 70
 
 const styles = StyleSheet.create({
@@ -43,6 +61,7 @@ const styles = StyleSheet.create({
     width: 2*HEIGHT,
     justifyContent: "center",
     alignItems: "center",
+    borderColor: "black",
     backgroundColor: "grey"
   },
   deliveryDetailsContainer: {
@@ -52,4 +71,4 @@ const styles = StyleSheet.create({
   }
 })
 
-module.exports = connect(null, mapDispatchToProps)(DeliveryDetails)
+module.exports = connect(mapStateToProps, mapDispatchToProps)(DeliveryDetails)
