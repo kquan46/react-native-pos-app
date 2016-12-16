@@ -13,9 +13,12 @@ class TableSubNumber extends Component {
     }
   }
 
-  selectTable(orderTable) {
-    this.props.selectOrder(orderTable)
-    this.state.selected = "true"
+  selectSubTable(orderSubTable) {
+    this.props.selectOrder(orderSubTable)
+  }
+
+  newOrder(tableNumber, tableSubNumber) {
+    this.props.newTableOrder(tableNumber, tableSubNumber)
   }
 
   getStyle(){
@@ -29,12 +32,10 @@ class TableSubNumber extends Component {
   render () {
 
     return (
-      <TouchableOpacity style={styles.tableSubNumber} onPress={() => {this.props.orderTable.orderNumber ? this.selectTable(this.props.orderTable) : null }}>
-
-          <View style={this.getStyle()}>
-            <Text style={styles.text}>{this.props.tableSubNumber}</Text>
-          </View>
-
+      <TouchableOpacity style={styles.tableSubNumber} onPress={() => {this.props.orderTable.orderNumber ? this.selectSubTable(this.props.orderTable) : this.newOrder(this.props.tableNumber, this.props.tableSubNumber) }}>
+        <View style={this.getStyle()}>
+          <Text style={styles.text}>{this.props.tableSubNumber}</Text>
+        </View>
       </TouchableOpacity>
     )
   }
@@ -46,7 +47,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    order: state.order
+    order: state.order,
   }
 }
 

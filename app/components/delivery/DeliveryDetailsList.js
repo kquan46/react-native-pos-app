@@ -1,6 +1,6 @@
 'use strict'
 import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, ScrollView } from 'react-native'
 
 import DeliveryDetails from './DeliveryDetails'
 
@@ -14,7 +14,9 @@ class DeliveryDetailsList extends Component {
   render () {
     return (
       <View style={styles.deliveryDetailsList}>
-        {this.props.deliveryDetailsList.map(i => <DeliveryDetails key={i.orderNumber} deliveryInfo={i.deliveryInfo} orderDelivery={i} />)}
+        <ScrollView style={{flex: 1}} horizontal={true} showsHorizontalScrollIndicator={false} alwaysBounceHorizontal={false}>
+          {this.props.deliveryDetailsList.map(i => <DeliveryDetails key={i.orderNumber} deliveryInfo={i.deliveryInfo} orderDelivery={i} />)}
+        </ScrollView>
       </View>
     )
   }

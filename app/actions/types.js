@@ -1,4 +1,6 @@
 export const FETCH_ORDERS = 'FETCH_ORDERS'
 export const SELECT_ORDER = 'SELECT_ORDER'
 export const ADD_TABLE = 'ADD_TABLE'
-export const ADD_SUB_TABLE = 'ADD_SUB_TABLE'
+export const NEW_TABLE_ORDER = 'NEW_TABLE_ORDER'
+export const NEW_DELIVERY_ORDER = 'NEW_DELIVERY_ORDER'
+export const PAY_ORDER = 'PAY_ORDER'

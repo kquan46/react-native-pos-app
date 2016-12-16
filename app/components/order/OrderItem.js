@@ -8,11 +8,6 @@ class OrderItem extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      orderTime: (this.props.orderTime),
-      name: (this.props.name),
-      customization: (this.props.customization),
-      quantity: (this.props.quantity),
-      price: (this.props.price)
     }
   }
 
@@ -20,11 +15,18 @@ class OrderItem extends Component {
 
   }
 
+  formatTime(time) {
+    if (time != null) {
+      var newTime = time.slice(0,5)
+      return newTime
+    }
+  }
+
   render () {
     return (
       <View style={styles.orderItem}>
         <View style={styles.time}>
-          <Text>{this.props.item.orderTime}</Text>
+          <Text>{this.formatTime(this.props.item.orderTime)}</Text>
         </View>
         <OrderItemCustomization>
           <Text>{this.props.item.name}</Text>

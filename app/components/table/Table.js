@@ -18,7 +18,7 @@ class Table extends Component {
     return (
       <View style={styles.table}>
         <TableNumber tableNumber={this.props.tableNumber} />
-        <TableSubNumberList tableSubNumberList={this.props.orderTable} />
+        <TableSubNumberList tableNumber={this.props.tableNumber} tableSubNumberList={this.props.orderTable} />
       </View>
     )
   }

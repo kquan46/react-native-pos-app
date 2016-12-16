@@ -24,11 +24,11 @@ class TableSubNumberList extends Component {
   render () {
     return (
       <View style={styles.tableSubNumberList}>
-        <TableSubNumber key="A" tableSubNumber="A" orderTable={this.getOrderSubTable("A")} />
-        <TableSubNumber key="B" tableSubNumber="B" orderTable={this.getOrderSubTable("B")} />
-        <TableSubNumber key="C" tableSubNumber="C" orderTable={this.getOrderSubTable("C")} />
-        <TableSubNumber key="D" tableSubNumber="D" orderTable={this.getOrderSubTable("D")} />
-        <TableSubNumber key="E" tableSubNumber="E" orderTable={this.getOrderSubTable("E")} />
+        <TableSubNumber key="A" tableSubNumber="A" tableNumber={this.props.tableNumber} orderTable={this.getOrderSubTable("A")} />
+        <TableSubNumber key="B" tableSubNumber="B" tableNumber={this.props.tableNumber} orderTable={this.getOrderSubTable("B")} />
+        <TableSubNumber key="C" tableSubNumber="C" tableNumber={this.props.tableNumber} orderTable={this.getOrderSubTable("C")} />
+        <TableSubNumber key="D" tableSubNumber="D" tableNumber={this.props.tableNumber} orderTable={this.getOrderSubTable("D")} />
+        <TableSubNumber key="E" tableSubNumber="E" tableNumber={this.props.tableNumber} orderTable={this.getOrderSubTable("E")} />
       </View>
     )
   }

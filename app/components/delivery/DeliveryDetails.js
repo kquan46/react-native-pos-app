@@ -17,26 +17,18 @@ class DeliveryDetails extends Component {
     this.props.selectOrder(order)
   }
 
-  getDeliveryBorder(){
+  getStyle() {
     if (this.props.order.orderNumber === this.props.orderDelivery.orderNumber)
-      return 4
-    else return 0
-  }
-
-  getDeliveryColor(){
-    if (this.props.order.orderNumber === this.props.orderDelivery.orderNumber)
-      return "blue"
-    else return "grey"
+        return styles.deliverySelected
+    else return styles.deliveryNotSelected
   }
 
   render () {
     return (
-      <TouchableOpacity onPress={() => {this.selectOrder(this.props.orderDelivery) }}>
-        <View style={styles.deliveryDetailsContainer}>
-          <View style={styles.deliveryDetails} borderWidth={this.getDeliveryBorder()}>
-            <Text>{this.props.deliveryInfo.deliveryAddress}</Text>
-            <Text>{this.props.deliveryInfo.deliveryPhoneNumber}</Text>
-          </View>
+      <TouchableOpacity style={styles.deliveryDetailsContainer} onPress={() => {this.selectOrder(this.props.orderDelivery) }}>
+        <View style={this.getStyle()}>
+          <Text>{this.props.deliveryInfo.deliveryAddress}</Text>
+          <Text>{this.props.deliveryInfo.deliveryPhoneNumber}</Text>
         </View>
       </TouchableOpacity>
     )
@@ -56,19 +48,29 @@ function mapStateToProps(state) {
 const HEIGHT = 70
 
 const styles = StyleSheet.create({
-  deliveryDetails: {
+  deliveryDetailsContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    paddingRight: 10
+  },
+  deliverySelected: {
     height: HEIGHT,
-    width: 2*HEIGHT,
+    width: 1.5*HEIGHT,
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "black",
+    backgroundColor: "grey",
+    borderWidth: 4,
+  },
+  deliveryNotSelected: {
+    height: HEIGHT,
+    width: 1.5*HEIGHT,
     justifyContent: "center",
     alignItems: "center",
     borderColor: "black",
     backgroundColor: "grey"
   },
-  deliveryDetailsContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    paddingRight: 10
-  }
+
 })
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(DeliveryDetails)

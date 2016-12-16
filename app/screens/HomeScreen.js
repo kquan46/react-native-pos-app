@@ -13,20 +13,29 @@ import OrderContainer from '../containers/OrderContainer'
 class HomeScreen extends Component {
   constructor(props) {
     super(props)
+    this.fetchOrders()
   }
 
   fetchOrders() {
     this.props.fetchOrders()
   }
 
+  getOrders(type) {
+    let result = []
+    if (this.props.orders != null) {
+      this.props.orders.map(function(order) {
+        if (order.orderType === type && order.orderStatus.payStatus === "notPaid")
+          result.push(order)
+      })
+    }
+    return result
+  }
+
   render() {
     return (
       <AppContainer>
-        <TouchableOpacity onPress={() => {this.fetchOrders() }}>
-          <Text>Fetch orders</Text>
-        </TouchableOpacity>
         <MainContainer>
-          <TableAndDeliveryContainer tableOrders={this.props.tableOrders} deliveryOrders={this.props.deliveryOrders} />
+          <TableAndDeliveryContainer tableOrders={this.getOrders("table")} deliveryOrders={this.getOrders("delivery")} />
           <OrderContainer order={this.props.order} />
         </MainContainer>
       </AppContainer>
@@ -40,8 +49,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    tableOrders: state.tableOrders,
-    deliveryOrders: state.deliveryOrders,
+    orders: state.orders,
     order: state.order
   }
 }

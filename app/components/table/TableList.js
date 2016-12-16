@@ -23,15 +23,15 @@ class TableList extends Component {
 
   render () {
     return (
-      <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
       <View style={styles.tableList}>
-        <Table key="1" tableNumber="1" orderTable={this.groupByTable("1")} />
-        <Table key="2" tableNumber="2" orderTable={this.groupByTable("2")} />
-        <Table key="3" tableNumber="3" orderTable={this.groupByTable("3")} />
-        <Table key="4" tableNumber="4" orderTable={this.groupByTable("4")} />
-        <Table key="5" tableNumber="5" orderTable={this.groupByTable("5")} />
+        <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false} alwaysBounceVertical={false}>
+          <Table key="1" tableNumber="1" orderTable={this.groupByTable("1")} />
+          <Table key="2" tableNumber="2" orderTable={this.groupByTable("2")} />
+          <Table key="3" tableNumber="3" orderTable={this.groupByTable("3")} />
+          <Table key="4" tableNumber="4" orderTable={this.groupByTable("4")} />
+          <Table key="5" tableNumber="5" orderTable={this.groupByTable("5")} />
+        </ScrollView>
       </View>
-      </ScrollView>
     )
   }
 }

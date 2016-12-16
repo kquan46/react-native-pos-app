@@ -17,7 +17,7 @@ class OrderDetails extends Component {
       numOfItems: ""
     }
   }
-
+  
   render () {
     return (
       <View style={styles.orderDetails}>

@@ -1,8 +1,9 @@
 'use strict'
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
-
-
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as orderActions from '../../actions/orderActions'
 
 class DeliverySection extends Component {
   constructor(props) {
@@ -12,17 +13,23 @@ class DeliverySection extends Component {
     }
   }
 
+  newOrder(deliveryAddress, deliveryPhoneNumber) {
+    this.props.newDeliveryOrder(deliveryAddress, deliveryPhoneNumber)
+  }
+
   render () {
     return (
-      <View style={styles.deliverySection}>
-        <TouchableOpacity>
-          <View style={styles.deliverySectionHeading}>
-            <Text style={styles.text}>外賣</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity style={styles.deliverySection} onPress={() => {this.newOrder("address", "phonenumber") }}>
+        <View style={styles.deliverySectionHeading}>
+          <Text style={styles.text}>外賣</Text>
+        </View>
+      </TouchableOpacity>
     )
   }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(orderActions, dispatch)
 }
 
 const HEIGHT = 80
@@ -46,4 +53,4 @@ const styles = StyleSheet.create({
   }
 })
 
-module.exports = DeliverySection
+module.exports = connect(null, mapDispatchToProps)(DeliverySection)
