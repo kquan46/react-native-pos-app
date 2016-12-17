@@ -17,7 +17,7 @@ class OrderDetails extends Component {
       numOfItems: ""
     }
   }
-  
+
   render () {
     return (
       <View style={styles.orderDetails}>
@@ -26,7 +26,7 @@ class OrderDetails extends Component {
           {this.props.orderList.foodItems ? this.props.orderList.foodItems.map(i => <OrderItem item={i} />) : null}
           {this.props.orderList.drinkItems ? this.props.orderList.drinkItems.map(i => <OrderItem item={i} />) : null}
         </OrderDetailsList>
-        <OrderDetailsTotal totalPrice={this.props.orderStatus.totalPrice} numOfItems={this.props.orderStatus.numOfItems} />
+        <OrderDetailsTotal totalPrice={this.props.orderInfo.totalPrice} numOfItems={this.props.orderInfo.numOfItems} />
       </View>
     )
   }

@@ -9,6 +9,7 @@ import AppContainer from '../containers/AppContainer'
 import MainContainer from '../containers/MainContainer'
 import TableAndDeliveryContainer from '../containers/TableAndDeliveryContainer'
 import OrderContainer from '../containers/OrderContainer'
+import * as sampleData from '../reducers/data'
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class HomeScreen extends Component {
     let result = []
     if (this.props.orders != null) {
       this.props.orders.map(function(order) {
-        if (order.orderType === type && order.orderStatus.payStatus === "notPaid")
+        if (order.orderType === type && order.orderInfo.orderStatus === "notPaid")
           result.push(order)
       })
     }

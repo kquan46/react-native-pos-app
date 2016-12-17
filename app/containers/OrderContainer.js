@@ -17,8 +17,8 @@ class OrderContainer extends Component {
     render () {
       return (
           <View style={styles.orderContainer}>
-            {this.props.order.tableInfo ? <OrderInfoTable orderTableInfo={this.props.order.tableInfo} orderStatus={this.props.order.orderStatus} /> : <OrderInfoDelivery orderDeliveryInfo={this.props.order.deliveryInfo} orderStatus={this.props.order.orderStatus} />}
-            <OrderDetails orderList={this.props.order.orderList} orderStatus={this.props.order.orderStatus} />
+            {this.props.order.tableInfo ? <OrderInfoTable orderTableInfo={this.props.order.tableInfo} orderInfo={this.props.order.orderInfo} /> : <OrderInfoDelivery orderDeliveryInfo={this.props.order.deliveryInfo} orderInfo={this.props.order.orderInfo} />}
+            <OrderDetails orderList={this.props.order.orderList} orderInfo={this.props.order.orderInfo} />
             <OrderActions />
           </View>
       )

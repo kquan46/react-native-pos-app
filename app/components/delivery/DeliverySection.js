@@ -14,7 +14,7 @@ class DeliverySection extends Component {
   }
 
   newOrder(deliveryAddress, deliveryPhoneNumber) {
-    this.props.newDeliveryOrder(deliveryAddress, deliveryPhoneNumber)
+    this.props.createAndSelectDeliveryOrder(deliveryAddress, deliveryPhoneNumber)
   }
 
   render () {

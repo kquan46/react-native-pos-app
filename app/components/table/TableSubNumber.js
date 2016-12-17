@@ -9,7 +9,6 @@ class TableSubNumber extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      selected: this.props.order.orderNumber === this.props.orderTable.orderNumber ? "true" : "false"
     }
   }
 
@@ -18,7 +17,15 @@ class TableSubNumber extends Component {
   }
 
   newOrder(tableNumber, tableSubNumber) {
-    this.props.newTableOrder(tableNumber, tableSubNumber)
+    this.props.createAndSelectTableOrder(tableNumber, tableSubNumber)
+  }
+
+  handleOnPress() {
+    if (this.props.order.orderNumber !== this.props.orderTable.orderNumber) {
+      if (this.props.orderTable.orderNumber != null)
+        return this.selectSubTable(this.props.orderTable)
+      else return this.newOrder(this.props.tableNumber, this.props.tableSubNumber)
+    }
   }
 
   getStyle(){
@@ -32,7 +39,7 @@ class TableSubNumber extends Component {
   render () {
 
     return (
-      <TouchableOpacity style={styles.tableSubNumber} onPress={() => {this.props.orderTable.orderNumber ? this.selectSubTable(this.props.orderTable) : this.newOrder(this.props.tableNumber, this.props.tableSubNumber) }}>
+      <TouchableOpacity style={styles.tableSubNumber} onPress={() => {this.handleOnPress()}}>
         <View style={this.getStyle()}>
           <Text style={styles.text}>{this.props.tableSubNumber}</Text>
         </View>

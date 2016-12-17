@@ -9,8 +9,6 @@ class Table extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      tableNumber: this.props.tableNumber,
-      orderTable: this.props.orderTable
     }
   }
 

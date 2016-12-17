@@ -26,7 +26,7 @@ class OrderInfoTable extends Component {
           {this.props.orderTableInfo.numOfPeople ? <Text style={styles.headingText}>{this.props.orderTableInfo.numOfPeople}位</Text> : null}
         </View>
         <View style={styles.time}>
-          <Text style={styles.headingText}>{this.formatTime(this.props.orderStatus.startTime)}</Text>
+          <Text style={styles.headingText}>{this.formatTime(this.props.orderInfo.startTime)}</Text>
         </View>
       </View>
     )

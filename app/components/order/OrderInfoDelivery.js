@@ -28,7 +28,7 @@ class OrderInfoDelivery extends Component {
           </View>
           <View style={styles.headingLower}>
             <Text style={styles.headingLowerText}>{this.props.orderDeliveryInfo.deliveryPhoneNumber}</Text>
-            <Text style={styles.headingLowerText}>{this.formatTime(this.props.orderStatus.startTime)}</Text>
+            <Text style={styles.headingLowerText}>{this.formatTime(this.props.orderInfo.startTime)}</Text>
           </View>
         </View>
       </View>

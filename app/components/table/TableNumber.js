@@ -6,7 +6,6 @@ class TableNumber extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      tableNumber: this.props.tableNumber
     }
   }
 

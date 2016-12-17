@@ -12,6 +12,9 @@ class OrderActions extends Component {
   payOrder() {
    this.props.payOrder(this.props.order.orderNumber)
   }
+  cancelOrder() {
+   this.props.cancelOrder(this.props.order.orderNumber)
+  }
 
   render () {
     return (
@@ -19,7 +22,7 @@ class OrderActions extends Component {
         <TouchableOpacity style={styles.button}>
           <Text>Edit</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => {this.props.order.orderNumber ? this.cancelOrder() : null}}>
           <Text>Cancel</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
