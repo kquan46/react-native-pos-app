@@ -4,6 +4,7 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as orderActions from '../../actions/orderActions'
+import { Actions } from 'react-native-router-flux'
 
 class OrderActions extends Component {
   constructor(props) {
@@ -19,14 +20,14 @@ class OrderActions extends Component {
   render () {
     return (
       <View style={styles.orderActions}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.text}>Edit</Text>
+        <TouchableOpacity style={styles.button} onPress={() => Actions.pop()}>
+          <Text style={styles.text}>Table/Delivery</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => {this.props.order.orderNumber ? this.cancelOrder() : null}}>
           <Text style={styles.text}>Cancel</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.text}>Print</Text>
+        <TouchableOpacity style={styles.button} onPress={() => Actions.menu()}>
+          <Text style={styles.text}>Menu</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => {this.props.order.orderNumber ? this.payOrder() : null}}>
           <Text style={styles.text}>Pay</Text>

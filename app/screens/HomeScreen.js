@@ -1,8 +1,10 @@
 'use strict'
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, StatusBar, TouchableOpacity } from 'react-native'
-import { Provider, connect } from 'react-redux'
-import { createStore, combineRedexers, bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { Router, Scene } from 'react-native-router-flux'
+
 import * as orderActions from '../actions/orderActions'
 //import AppNavigator from './app/navigation/AppNavigator'
 import AppContainer from '../containers/AppContainer'
@@ -12,33 +14,33 @@ import OrderContainer from '../containers/OrderContainer'
 import MenuContainer from '../containers/MenuContainer'
 import * as sampleData from '../reducers/data'
 
+
 class HomeScreen extends Component {
   constructor(props) {
     super(props)
-    this.fetchOrders()
   }
 
-  fetchOrders() {
-    this.props.fetchOrders()
-  }
-
-  getOrders(type) {
-    let result = []
-    if (this.props.orders != null) {
-      this.props.orders.map(function(order) {
-        if (order.orderType === type && order.orderInfo.orderStatus === "notPaid")
-          result.push(order)
-      })
-    }
-    return result
-  }
 
   render() {
     return (
       <AppContainer>
         <MainContainer>
-          {/*<TableAndDeliveryContainer tableOrders={this.getOrders("table")} deliveryOrders={this.getOrders("delivery")} />*/}
-          <MenuContainer menu={this.props.menu} />
+          <View style={styles.router}>
+          <Router>
+              <Scene
+                key="tableAndDelivery"
+                component={TableAndDeliveryContainer}
+                title="tableAndDelivery"
+                initial
+                hideNavBar />
+              <Scene
+                key="menu"
+                component={MenuContainer}
+                title="menu"
+                menu={this.props.menu}
+                hideNavBar />
+          </Router>
+          </View>
           <OrderContainer order={this.props.order} />
         </MainContainer>
       </AppContainer>
@@ -52,14 +54,15 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    orders: state.orders,
     order: state.order,
     menu: state.menu
   }
 }
 
 const styles = StyleSheet.create({
-
+  router: {
+    flex: 7
+  }
 })
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(HomeScreen)

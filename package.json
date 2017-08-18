@@ -10,6 +10,7 @@
     "react": "15.3.2",
     "react-native": "0.37.0",
     "react-native-code-push": "^5.0.0-beta",
+    "react-native-router-flux": "^3.36.0",
     "react-redux": "^5.0.6",
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",

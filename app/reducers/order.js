@@ -58,7 +58,7 @@ export function order(state = {}, action) {
     case types.SELECT_ORDER:
       return action.order
     default:
-      return Object.assign({}, sampleData.ORDER_SAMPLE_TABLE)
+      return Object.assign({}, sampleData.ORDER_DEFAULT)
   }
 }
 

@@ -28,11 +28,9 @@ class MenuList extends Component {
 
     }
     var numOfBlanks = size - result[result.length - 1].length
-    console.log(numOfBlanks)
     for (i = 0; i < numOfBlanks; i++) {
       result[result.length-1].push({})
     }
-    console.log(result)
     return result
   }
 
