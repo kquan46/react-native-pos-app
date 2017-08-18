@@ -20,16 +20,16 @@ class OrderActions extends Component {
     return (
       <View style={styles.orderActions}>
         <TouchableOpacity style={styles.button}>
-          <Text>Edit</Text>
+          <Text style={styles.text}>Edit</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => {this.props.order.orderNumber ? this.cancelOrder() : null}}>
-          <Text>Cancel</Text>
+          <Text style={styles.text}>Cancel</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
-          <Text>Print</Text>
+          <Text style={styles.text}>Print</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => {this.props.order.orderNumber ? this.payOrder() : null}}>
-          <Text>Pay</Text>
+          <Text style={styles.text}>Pay</Text>
         </TouchableOpacity>
       </View>
     )
@@ -58,6 +58,10 @@ const styles = StyleSheet.create({
       backgroundColor: "blue",
       justifyContent: "center",
       alignItems: "center"
+    },
+    text: {
+      color: "white",
+      fontSize: 18
     }
 })
 

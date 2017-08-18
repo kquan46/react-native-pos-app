@@ -58,10 +58,16 @@ export function order(state = {}, action) {
     case types.SELECT_ORDER:
       return action.order
     default:
-      return Object.assign({}, sampleData.ORDER_DEFAULT)
+      return Object.assign({}, sampleData.ORDER_SAMPLE_TABLE)
   }
 }
 
+export function menu(state = [], action) {
+  switch (action.type) {
+    default:
+     return sampleData.MENU_SAMPLE
+  }
+}
 function getOrderNumber(ordersLength) {
   var currentDate = new Date()
   var year = currentDate.getFullYear().toString()
