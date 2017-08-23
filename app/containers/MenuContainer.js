@@ -15,8 +15,6 @@ class MenuContainer extends Component {
   render () {
     return (
         <View style={styles.menuContainer}>
-          <MenuTab />
-          <Menu menuList={this.props.menu} />
           <MenuActions />
         </View>
     )

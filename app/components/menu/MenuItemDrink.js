@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as orderActions from '../../actions/orderActions'
 
-class MenuItem extends Component {
+class MenuItemDrink extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -81,4 +81,4 @@ const styles = StyleSheet.create({
     }
 })
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(MenuItem)
+module.exports = connect(mapStateToProps, mapDispatchToProps)(MenuItemDrink)

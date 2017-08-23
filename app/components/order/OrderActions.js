@@ -9,25 +9,48 @@ import { Actions } from 'react-native-router-flux'
 class OrderActions extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      menuSelected: false
+    }
   }
   payOrder() {
    this.props.payOrder(this.props.order.orderNumber)
   }
   cancelOrder() {
    this.props.cancelOrder(this.props.order.orderNumber)
+   if (this.state.menuSelected == true)
+     Actions.pop()
+   this.setState({menuSelected: false})
+  }
+
+  toggleMenu() {
+    if (this.state.menuSelected == false) {
+      if (this.props.order.orderNumber) {
+        Actions.menuTab()
+        this.setState({
+          menuSelected: true
+        })
+      }
+    }
+    else {
+      Actions.pop()
+      this.setState({
+        menuSelected: false
+      })
+    }
   }
 
   render () {
     return (
       <View style={styles.orderActions}>
-        <TouchableOpacity style={styles.button} onPress={() => Actions.pop()}>
-          <Text style={styles.text}>Table/Delivery</Text>
+        <TouchableOpacity style={styles.button} onPress={() => this.toggleMenu()}>
+          {this.state.menuSelected ? <Text style={styles.text}>Back</Text> : <Text style={styles.text}>Menu</Text>}
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => {this.props.order.orderNumber ? this.cancelOrder() : null}}>
           <Text style={styles.text}>Cancel</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => Actions.menu()}>
-          <Text style={styles.text}>Menu</Text>
+        <TouchableOpacity style={styles.button} onPress={() => null}>
+          <Text style={styles.text}>Print</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => {this.props.order.orderNumber ? this.payOrder() : null}}>
           <Text style={styles.text}>Pay</Text>

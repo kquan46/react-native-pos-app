@@ -48,17 +48,105 @@ export function orders(state = [], action) {
         ...state.slice(index + 1)
       ]
     }
+    case types.ADD_ITEM_DRINK: {
+      let index = state.findIndex((order) => order.orderNumber === action.orderNumber)
+      return [
+        ...state.slice(0, index),
+        {
+          ...state[index],
+          orderList: {
+            ...state[index].orderList,
+            drinkItems: [
+              ...state[index].orderList.drinkItems,
+              {
+                name: action.drinkItem.name,
+                customization: null,
+                shortName: action.drinkItem.shortName,
+                menuName: action.drinkItem.menuName,
+                type: action.drinkItem.type,
+                quantity: 1,
+                price: action.drinkItem.price,
+                orderTime: getTime(),
+                payStatus: "notPaid",
+                hotCold: action.drinkItem.hotCold
+              }
+            ]
+          }
+        },
+        ...state.slice(index + 1)
+      ]
+    }
+    case types.ADD_ITEM_FOOD: {
+      let index = state.findIndex((order) => order.orderNumber === action.orderNumber)
+      return [
+        ...state.slice(0, index),
+        {
+          ...state[index],
+          orderList: {
+            ...state[index].orderList,
+            foodItems: [
+              ...state[index].orderList.foodItems,
+              {
+                name: "",
+                customization: null,
+                shortName: "",
+                menuName: "",
+                type: "",
+                quantity: 1,
+                price: "",
+                orderTime: getTime(),
+                payStatus: "notPaid",
+                base: "",
+                ingredients: []
+              }
+            ]
+          }
+        },
+        ...state.slice(index + 1)
+      ]
+    }
     default:
      return state
   }
 }
 
-export function order(state = {}, action) {
+export function order(state = sampleData.ORDER_DEFAULT, action) {
   switch (action.type) {
     case types.SELECT_ORDER:
       return action.order
+    case types.CHANGE_ORDER_STATUS:
+      return sampleData.ORDER_DEFAULT
+    case types.ADD_ITEM_DRINK:
     default:
-      return Object.assign({}, sampleData.ORDER_DEFAULT)
+      return state
+  }
+}
+
+export function drinkItem(state = {}, action) {
+  switch (action.type) {
+    case types.SELECT_DRINK:
+      return action.drinkItem
+    case types.CLEAR_ITEM_DRINK:
+      return {}
+    default:
+      return state
+  }
+}
+
+export function foodItem(state = sampleData.FOOD_ITEM_DEFAULT, action) {
+  switch (action.type) {
+    case types.CLEAR_ITEM_FOOD:
+      return sampleData.FOOD_ITEM_DEFAULT
+    case types.CLEAR_ITEM_INGREDIENT:
+      return {...state, ingredient: null}
+    case types.CLEAR_ITEM_BASE:
+      return {...state, base: null}
+    case types.SELECT_INGREDIENT:
+      return {...state, ingredient: action.ingredientItem}
+    case types.SELECT_BASE:
+      return {...state, base: action.baseItem}
+    default:
+      return state
   }
 }
 

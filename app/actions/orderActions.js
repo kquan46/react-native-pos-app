@@ -32,6 +32,17 @@ export function createAndSelectDeliveryOrder(deliveryAddress, deliveryPhoneNumbe
   }
 }
 
+export function findOrderAndAddDrinkItem(drinkItem, orderNumber) {
+  return (dispatch, getState) => {
+    dispatch(addDrinkItem(drinkItem, orderNumber))
+    const newState = getState().orders
+    let index = newState.findIndex((order) => order.orderNumber === orderNumber)
+    var currentOrder = newState[index]
+    dispatch(selectOrder(currentOrder))
+    dispatch(clearDrinkItem())
+  }
+}
+
 export function newTableOrder(tableNumber, tableSubNumber) {
   return {
     type: types.NEW_TABLE_ORDER,
@@ -74,5 +85,67 @@ export function cancelOrder(orderNumber) {
     type: types.CHANGE_ORDER_STATUS,
     orderNumber,
     orderStatus: "cancelled"
+  }
+}
+
+export function changeOrderStatus(orderNumber, orderStatus) {
+  return {
+    type: types.CHANGE_ORDER_STATUS,
+    orderNumber,
+    orderStatus
+  }
+}
+
+export function clearOrder(orderNumber) {
+  return {
+    type: types.CLEAR_ORDER,
+    orderNumber
+  }
+}
+
+export function selectDrink(drinkItem) {
+  return {
+    type: types.SELECT_DRINK,
+    drinkItem
+  }
+}
+
+export function addDrinkItem(drinkItem, orderNumber) {
+  return{
+    type: types.ADD_ITEM_DRINK,
+    drinkItem,
+    orderNumber
+  }
+}
+
+export function clearDrinkItem() {
+  return {
+    type: types.CLEAR_ITEM_DRINK
+  }
+}
+
+export function selectBase(baseItem) {
+  return {
+    type: types.SELECT_BASE,
+    baseItem
+  }
+}
+
+export function clearBaseItem() {
+  return {
+    type: types.CLEAR_ITEM_BASE
+  }
+}
+
+export function selectIngredient(ingredientItem) {
+  return {
+    type: types.SELECT_INGREDIENT,
+    ingredientItem
+  }
+}
+
+export function clearFoodItem() {
+  return {
+    type: types.CLEAR_ITEM_FOOD
   }
 }

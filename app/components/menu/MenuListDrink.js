@@ -2,9 +2,9 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, ListView } from 'react-native'
 
-import MenuItem from './MenuItem'
+import MenuItemDrink from './MenuItemDrink'
 
-class MenuList extends Component {
+class MenuListDrink extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -40,7 +40,7 @@ class MenuList extends Component {
         {this.splitListBySize(5).map(function(list) {
           return(
             <View style={styles.list}>
-              {list.map(item => <MenuItem item={item} />)}
+              {list.map(item => <MenuItemDrink item={item} />)}
             </View>
           )
         })}
@@ -63,4 +63,4 @@ const styles = StyleSheet.create({
   }
 })
 
-module.exports = MenuList
+module.exports = MenuListDrink

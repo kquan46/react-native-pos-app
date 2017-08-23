@@ -35,7 +35,7 @@ class OrderItem extends Component {
         <View style={styles.text}>
           <Text>{this.props.item.quantity}</Text>
         </View>
-        <View style={styles.text}>
+        <View style={styles.price}>
           <Text style={styles.priceText}>{this.props.item.price}</Text>
         </View>
       </View>
@@ -60,7 +60,11 @@ const styles = StyleSheet.create({
       alignItems: "center"
   },
   priceText: {
-      textAlign: "right"
+      textAlign: "right",
+      paddingRight: 10
+  },
+  price: {
+    flex: 1,
   }
 })
 
