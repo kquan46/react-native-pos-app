@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, ListView } from 'react-native'
 
 import MenuList from './MenuList'
+import MenuListFood from './MenuListFood'
 import MenuListDrink from './MenuListDrink'
 import MenuActions from './MenuActions'
 
@@ -27,8 +28,8 @@ class MenuTab2 extends Component {
     return (
       <View style={styles.menu}>
         <View style={styles.subMenu}>
-          <MenuList menuList={this.getIngredientsMiniSet()} />
-          <MenuList menuList={this.props.menuList.baseMiniSet} />
+          <MenuListFood menuList={this.getIngredientsMiniSet()} maxItems={1} />
+          <MenuListFood menuList={this.props.menuList.baseMiniSet} />
           <MenuListDrink menuList={this.props.menuList.drinksMeal} />
         </View>
         <MenuActions />

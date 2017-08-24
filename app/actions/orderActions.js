@@ -144,6 +144,19 @@ export function selectIngredient(ingredientItem) {
   }
 }
 
+export function deSelectIngredient(ingredientItem) {
+  return {
+    type: types.DESELECT_INGREDIENT,
+    ingredientItem
+  }
+}
+
+export function clearIngredients() {
+  return {
+    type: types.CLEAR_ITEM_INGREDIENTS
+  }
+}
+
 export function clearFoodItem() {
   return {
     type: types.CLEAR_ITEM_FOOD

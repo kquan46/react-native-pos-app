@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as orderActions from '../../actions/orderActions'
 
-class MenuItemDrink extends Component {
+class MenuItemIngredient extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,23 +13,32 @@ class MenuItemDrink extends Component {
     }
   }
 
-  selectDrink(drinkItem) {
-    if (this.props.drinkItem.name !== this.props.item.name)
-      if (this.props.item.name != null)
-        this.props.selectDrink(drinkItem)
+  arrayContainsElement(ingredientItem) {
+    var matches = this.props.foodItem.ingredients.filter(function(ingredient) {
+      return ingredient.name === ingredientItem.name
+    })
+    if (matches.length > 0)
+      return true
+    else return false
+  }
+
+  toggleIngredient(ingredientItem) {
+    if (!this.arrayContainsElement(ingredientItem)) {
+      if (this.props.foodItem.ingredients.length < 3)
+        this.props.selectIngredient(ingredientItem)
+    }
+    else this.props.deSelectIngredient(ingredientItem)
   }
 
   getStyle(){
-    if (this.props.item.name == null)
-      return styles.itemNotSelected
-    if (this.props.drinkItem.name === this.props.item.name)
+    if (this.arrayContainsElement(this.props.item))
       return styles.itemSelected
     else return styles.itemNotSelected
   }
 
   render() {
     return (
-      <TouchableOpacity style={this.getStyle()} onPress={() => {this.selectDrink(this.props.item)}}>
+      <TouchableOpacity style={this.getStyle()} onPress={() => {this.toggleIngredient(this.props.item)}}>
         <Text style={styles.text}>{this.props.item.menuName}</Text>
       </TouchableOpacity>
     )
@@ -42,7 +51,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    drinkItem: state.drinkItem
+    foodItem: state.foodItem
   }
 }
 
@@ -71,7 +80,7 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       alignItems: "stretch",
       padding: 10,
-      borderColor: "green",
+      borderColor: "orange",
       borderWidth: 1.5,
       backgroundColor: "beige",
     },
@@ -81,4 +90,4 @@ const styles = StyleSheet.create({
     }
 })
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(MenuItemDrink)
+module.exports = connect(mapStateToProps, mapDispatchToProps)(MenuItemIngredient)

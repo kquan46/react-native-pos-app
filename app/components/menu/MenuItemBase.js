@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as orderActions from '../../actions/orderActions'
 
-class MenuItemDrink extends Component {
+class MenuItemBase extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,23 +13,23 @@ class MenuItemDrink extends Component {
     }
   }
 
-  selectDrink(drinkItem) {
-    if (this.props.drinkItem.name !== this.props.item.name)
+  selectBase(baseItem) {
+    if (this.props.foodItem.name !== this.props.item.name)
       if (this.props.item.name != null)
-        this.props.selectDrink(drinkItem)
+        this.props.selectBase(baseItem)
   }
 
   getStyle(){
     if (this.props.item.name == null)
       return styles.itemNotSelected
-    if (this.props.drinkItem.name === this.props.item.name)
+    else if (this.props.foodItem.base.name === this.props.item.name)
       return styles.itemSelected
     else return styles.itemNotSelected
   }
 
   render() {
     return (
-      <TouchableOpacity style={this.getStyle()} onPress={() => {this.selectDrink(this.props.item)}}>
+      <TouchableOpacity style={this.getStyle()} onPress={() => {this.selectBase(this.props.item)}}>
         <Text style={styles.text}>{this.props.item.menuName}</Text>
       </TouchableOpacity>
     )
@@ -42,7 +42,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    drinkItem: state.drinkItem
+    foodItem: state.foodItem
   }
 }
 
@@ -71,14 +71,14 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       alignItems: "stretch",
       padding: 10,
-      borderColor: "green",
+      borderColor: "purple",
       borderWidth: 1.5,
       backgroundColor: "beige",
     },
     text: {
         textAlign: "center",
-        fontSize: 25
+        fontSize: 25,
     }
 })
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(MenuItemDrink)
+module.exports = connect(mapStateToProps, mapDispatchToProps)(MenuItemBase)

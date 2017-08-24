@@ -137,12 +137,20 @@ export function foodItem(state = sampleData.FOOD_ITEM_DEFAULT, action) {
   switch (action.type) {
     case types.CLEAR_ITEM_FOOD:
       return sampleData.FOOD_ITEM_DEFAULT
-    case types.CLEAR_ITEM_INGREDIENT:
-      return {...state, ingredient: null}
+    case types.CLEAR_ITEM_INGREDIENTS:
+      return {...state, ingredients: []}
     case types.CLEAR_ITEM_BASE:
-      return {...state, base: null}
+      return {...state, base: {}}
     case types.SELECT_INGREDIENT:
-      return {...state, ingredient: action.ingredientItem}
+      return {...state, ingredients: [...state.ingredients, action.ingredientItem]}
+    case types.DESELECT_INGREDIENT: {/*}{
+      let index = state.ingredients.findIndex((ingredient) => ingredient.name === action.ingredientItem.name)
+      return {
+        ...state,
+        ingredients: [...state.ingredients.slice(0,index), ...state.ingredients.slice(index+1)]
+      }
+    }*/}
+      return {...state, ingredients: state.ingredients.filter(i => i.name !== action.ingredientItem.name)}
     case types.SELECT_BASE:
       return {...state, base: action.baseItem}
     default:

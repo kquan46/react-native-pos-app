@@ -2,14 +2,22 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, ListView } from 'react-native'
 
+import MenuItem from './MenuItem'
+import MenuItemIngredient from './MenuItemIngredient'
 import MenuItemDrink from './MenuItemDrink'
+import MenuItemBase from './MenuItemBase'
 import MenuItemBlank from './MenuItemBlank'
 
-class MenuListDrink extends Component {
+class MenuListFood extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      maxItems: this.props.maxItems
     }
+  }
+
+  getMaxItems() {
+    return this.props.maxItems
   }
 
   splitListBySize(size) {
@@ -43,10 +51,16 @@ class MenuListDrink extends Component {
             <View style={styles.list}>
               {list.map(function(item) {
                 switch (item.type) {
-                  case "regularDrink":
-                    return <MenuItemDrink item={item} />
-                  case "mealDrink":
-                    return <MenuItemDrink item={item} />
+                  case "nonCombinations":
+                    return <MenuItemIngredient item={item} />
+                  case "combinations":
+                    return <MenuItemIngredient item={item} />
+                  case "base":
+                    return <MenuItemBase item={item} />
+                  case "baseMiniSet":
+                    return <MenuItemBase item={item} />
+                  case "snack":
+                    return <MenuItemBase item={item} />
                   default:
                     return <MenuItemBlank />
                 }
@@ -73,4 +87,4 @@ const styles = StyleSheet.create({
   }
 })
 
-module.exports = MenuListDrink
+module.exports = MenuListFood

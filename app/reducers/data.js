@@ -135,8 +135,9 @@ export const MENU_DEFAULT = {
 }
 
 export const FOOD_ITEM_DEFAULT = {
-  ingredient: null,
-  base: null
+  ingredients: [],
+  base: {},
+  customization: null
 }
 
 export const MENU_DRINKS = [
