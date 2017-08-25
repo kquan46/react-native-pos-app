@@ -12,12 +12,7 @@ class MenuListFood extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      maxItems: this.props.maxItems
     }
-  }
-
-  getMaxItems() {
-    return this.props.maxItems
   }
 
   splitListBySize(size) {
@@ -44,23 +39,25 @@ class MenuListFood extends Component {
   }
 
   render() {
+    var maxItemsProps = this.props.maxItems ? this.props.maxItems : null
     return (
       <View style={styles.menuList}>
         {this.splitListBySize(5).map(function(list) {
+          var maxItems = maxItemsProps
           return(
             <View style={styles.list}>
               {list.map(function(item) {
                 switch (item.type) {
                   case "nonCombinations":
-                    return <MenuItemIngredient item={item} />
+                    return <MenuItemIngredient item={item} maxItems={maxItems} />
                   case "combinations":
-                    return <MenuItemIngredient item={item} />
+                    return <MenuItemIngredient item={item} maxItems={maxItems} />
                   case "base":
                     return <MenuItemBase item={item} />
                   case "baseMiniSet":
                     return <MenuItemBase item={item} />
-                  case "snack":
-                    return <MenuItemBase item={item} />
+                  case "snacks":
+                    return <MenuItemIngredient item={item} maxItems={maxItems}/>
                   default:
                     return <MenuItemBlank />
                 }

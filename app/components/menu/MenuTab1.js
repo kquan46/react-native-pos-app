@@ -30,7 +30,7 @@ class MenuTab1 extends Component {
         <View style={styles.subMenu}>
           <MenuListFood menuList={this.getIngredients("nonCombinations")} maxItems={1} />
           <MenuListFood menuList={this.getIngredients("combinations")} maxItems={3} />
-          <MenuListFood menuList={this.props.menuList.base} maxItems={1}/>
+          <MenuListFood menuList={this.props.menuList.base} />
           <MenuListDrink menuList={this.props.menuList.drinksMeal} />
         </View>
         <MenuActions />

@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, ListView } from 'react-native'
 
-import MenuList from './MenuList'
+import MenuListFood from './MenuListFood'
 import MenuActions from './MenuActions'
 
 class MenuTab3 extends Component {
@@ -17,7 +17,7 @@ class MenuTab3 extends Component {
     return (
       <View style={styles.menu}>
         <View style={styles.subMenu}>
-          <MenuList menuList={this.props.menuList.snacks} />
+          <MenuListFood menuList={this.props.menuList.snacks} maxItems={1} />
         </View>
         <MenuActions />
       </View>

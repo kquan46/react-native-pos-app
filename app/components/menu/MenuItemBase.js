@@ -13,10 +13,12 @@ class MenuItemBase extends Component {
     }
   }
 
-  selectBase(baseItem) {
-    if (this.props.foodItem.name !== this.props.item.name)
+  ToggleBase(baseItem) {
+    if (this.props.foodItem.base.name !== this.props.item.name) {
       if (this.props.item.name != null)
         this.props.selectBase(baseItem)
+      }
+    else this.props.clearBaseItem()
   }
 
   getStyle(){
@@ -29,7 +31,7 @@ class MenuItemBase extends Component {
 
   render() {
     return (
-      <TouchableOpacity style={this.getStyle()} onPress={() => {this.selectBase(this.props.item)}}>
+      <TouchableOpacity style={this.getStyle()} onPress={() => {this.ToggleBase(this.props.item)}}>
         <Text style={styles.text}>{this.props.item.menuName}</Text>
       </TouchableOpacity>
     )

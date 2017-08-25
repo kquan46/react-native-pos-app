@@ -43,6 +43,13 @@ export function findOrderAndAddDrinkItem(drinkItem, orderNumber) {
   }
 }
 
+export function clearAndSelectIngredient(ingredientItem) {
+  return (dispatch, getState) => {
+    dispatch(clearIngredients())
+    dispatch(selectIngredient(ingredientItem))
+  }
+}
+
 export function newTableOrder(tableNumber, tableSubNumber) {
   return {
     type: types.NEW_TABLE_ORDER,

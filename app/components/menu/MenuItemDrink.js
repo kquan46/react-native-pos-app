@@ -13,10 +13,12 @@ class MenuItemDrink extends Component {
     }
   }
 
-  selectDrink(drinkItem) {
-    if (this.props.drinkItem.name !== this.props.item.name)
+  toggleDrink(drinkItem) {
+    if (this.props.drinkItem.name !== this.props.item.name) {
       if (this.props.item.name != null)
         this.props.selectDrink(drinkItem)
+      }
+    else this.props.clearDrinkItem()
   }
 
   getStyle(){
@@ -29,7 +31,7 @@ class MenuItemDrink extends Component {
 
   render() {
     return (
-      <TouchableOpacity style={this.getStyle()} onPress={() => {this.selectDrink(this.props.item)}}>
+      <TouchableOpacity style={this.getStyle()} onPress={() => {this.toggleDrink(this.props.item)}}>
         <Text style={styles.text}>{this.props.item.menuName}</Text>
       </TouchableOpacity>
     )

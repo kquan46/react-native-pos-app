@@ -22,10 +22,23 @@ class MenuItemIngredient extends Component {
     else return false
   }
 
-  toggleIngredient(ingredientItem) {
+  toggleIngredient(ingredientItem, maxItems) {
     if (!this.arrayContainsElement(ingredientItem)) {
-      if (this.props.foodItem.ingredients.length < 3)
-        this.props.selectIngredient(ingredientItem)
+    // array does not contain item
+      if (this.props.foodItem.ingredients.length === 0)
+      // array is empty, add any item to list
+         this.props.selectIngredient(ingredientItem)
+      else if (maxItems === 1)
+      // array is not empty, items are not combinational
+        this.props.clearAndSelectIngredient(ingredientItem)
+      else if (this.props.foodItem.ingredients.length < maxItems){
+      // array is not empty, and array not at maxItems yet
+        if (this.props.foodItem.ingredients[0].type !== ingredientItem.type)
+        // item in array is not combinational, so clear it
+          this.props.clearAndSelectIngredient(ingredientItem)
+        else this.props.selectIngredient(ingredientItem)
+        // item in array is combinational, add item to list
+      }
     }
     else this.props.deSelectIngredient(ingredientItem)
   }
@@ -38,7 +51,7 @@ class MenuItemIngredient extends Component {
 
   render() {
     return (
-      <TouchableOpacity style={this.getStyle()} onPress={() => {this.toggleIngredient(this.props.item)}}>
+      <TouchableOpacity style={this.getStyle()} onPress={() => {this.toggleIngredient(this.props.item, this.props.maxItems)}}>
         <Text style={styles.text}>{this.props.item.menuName}</Text>
       </TouchableOpacity>
     )
