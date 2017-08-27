@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
     orderDetailsList: {
         flex: 20,
         flexDirection: "column",
-        justifyContent: "flex-start"
+        justifyContent: "flex-start",
+        paddingTop: 7
     }
 })
 

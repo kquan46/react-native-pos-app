@@ -14,7 +14,7 @@ class OrderItemCustomization extends Component {
 
 const styles = StyleSheet.create({
     orderItemCustomization: {
-        flex: 4,
+        flex: 3,
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "flex-start"

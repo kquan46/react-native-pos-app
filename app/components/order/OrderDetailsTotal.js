@@ -12,8 +12,8 @@ class OrderDetailsTotal extends Component {
   render () {
     return (
       <View style={styles.orderDetailsTotal}>
-        <Text style={styles.heading}>Total Items: {this.props.numOfItems}</Text>
-        <Text style={styles.heading}>TOTAL: ${this.props.totalPrice}</Text>
+        <Text style={styles.heading}>{this.props.numOfItems ? this.props.numOfItems : 0} 項目</Text>
+        <Text style={styles.heading}>總數 HK${this.props.totalPrice ? this.props.totalPrice : 0}</Text>
       </View>
     )
   }

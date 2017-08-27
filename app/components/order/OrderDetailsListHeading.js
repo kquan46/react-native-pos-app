@@ -7,16 +7,16 @@ class OrderDetailsListHeading extends Component {
         return (
           <View style={styles.orderDetailsHeading}>
             <View style={styles.time}>
-              <Text>Time</Text>
+              <Text style={styles.text}>時間</Text>
             </View>
             <View style={styles.itemName}>
-              <Text>Item Name</Text>
+              <Text style={styles.text}>餐品</Text>
             </View>
-            <View style={styles.text}>
-              <Text>Qty</Text>
+            <View style={styles.quantity}>
+              <Text style={styles.text}>數量</Text>
             </View>
             <View style={styles.price}>
-              <Text>Price</Text>
+              <Text style={styles.text}>總數</Text>
             </View>
           </View>
         )
@@ -28,25 +28,32 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         justifyContent: "space-between",
+        alignItems: "flex-end",
         paddingLeft: 10,
         paddingRight: 10,
-        paddingTop: 10
+        paddingBottom: 4,
+        borderBottomWidth: 1
     },
     time: {
-        flex: 1.5,
-        alignItems: "flex-start"
+        flex: 0.9,
+        alignItems: "center",
+        paddingRight: 4
     },
-    text: {
-        flex: 1,
-        alignItems: "center"
+    quantity: {
+        flex: 0.7,
+        alignItems: "center",
     },
     price: {
-        flex: 1,
-        alignItems: "center"
+        flex: 0.8,
+        alignItems: "flex-end"
     },
     itemName: {
-        flex: 4,
+        flex: 3,
         alignItems: "flex-start",
+    },
+    text: {
+      fontSize: 18,
+      fontWeight: "bold"
     }
 })
 

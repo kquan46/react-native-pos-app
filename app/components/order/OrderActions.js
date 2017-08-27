@@ -47,7 +47,7 @@ class OrderActions extends Component {
           {this.state.menuSelected ? <Text style={styles.text}>Back</Text> : <Text style={styles.text}>Menu</Text>}
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => {this.props.order.orderNumber ? this.cancelOrder() : null}}>
-          <Text style={styles.text}>Cancel</Text>
+          <Text style={styles.text}>取消</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => null}>
           <Text style={styles.text}>Print</Text>

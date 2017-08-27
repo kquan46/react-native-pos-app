@@ -6,12 +6,12 @@ export const DELIVERY_ORDERS = [
     deliveryInfo: {deliveryAddress: "250鴨寮街", deliveryPhoneNumber: "2580 0983", notes: "extra chopsticks"},
     orderList: {
       foodItems: [
-        {name: "咖喱牛腩飯", customization: "少飯,走蒜", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "12:35:43", payStatus: "notPaid", base: "飯", ingredients: [{name: "咖喱牛腩"}]},
-        {name: "香茅豬扒風沙雞翼撈檬", customization: "", shortName: "朱扒亦凍蒙", type: "regularFood", quantity: 2, price: 37, orderTime: "12:35:56", payStatus: "notPaid", base: "撈檬", ingredients: [{name: "香茅豬扒"}, {name: "風沙雞翼"}]}
+        {name: "咖喱牛腩飯", customization: "少飯,走蒜", menuName: "咖喱牛腩飯", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "12:35:43", payStatus: "notPaid", base: "飯", ingredients: [{name: "咖喱牛腩"}]},
+        {name: "豬扒雞翼撈檬", customization: "", menuName: "豬扒雞翼撈檬", shortName: "朱扒亦凍蒙", type: "regularFood", quantity: 2, price: 37, orderTime: "12:35:56", payStatus: "notPaid", base: "撈檬", ingredients: [{name: "香茅豬扒"}, {name: "風沙雞翼"}]}
       ],
       drinkItems: [
-        {name: "凍檸檬茶", customization: "走甜,少冰", shortName: "凍OT", type: "mealDrink", quantity: 2, price: 2, orderTime: "12:35:45", payStatus: "notPaid", hotCold: "cold"},
-        {name: "青檸梳打冰", customization: "", shortName: "青O", type: "mealDrink", quantity: 1, price: 6, orderTime: "12:36:04", payStatus: "notPaid", hotCold: "cold"}
+        {name: "凍檸檬茶(餐)", customization: "走甜,少冰", menuName:"凍O茶(餐)", shortName: "凍OT", type: "mealDrink", quantity: 2, price: 2, orderTime: "12:35:45", payStatus: "notPaid", hotCold: "cold"},
+        {name: "青檸梳打冰(餐)", customization: "", menuName: "青O(餐)", shortName: "青O", type: "mealDrink", quantity: 1, price: 6, orderTime: "12:36:04", payStatus: "notPaid", hotCold: "cold"}
       ]
     }
   },
@@ -22,12 +22,12 @@ export const DELIVERY_ORDERS = [
     deliveryInfo: {deliveryAddress: "68南昌街", deliveryPhoneNumber: "6653 4621", notes: ""},
     orderList: {
       foodItems: [
-        {name: "咖喱牛腩飯", customization: "少飯,走蒜", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "12:35:32", payStatus: "notPaid", base: "飯", ingredients: [{name: "咖喱牛腩"}]},
-        {name: "香茅豬扒風沙雞翼撈檬", customization: "", shortName: "朱扒亦凍蒙", type: "regularFood", quantity: 2, price: 37, orderTime: "12:35:43", payStatus: "notPaid", base: "撈檬", ingredients: [{name: "香茅豬扒"}, {name: "風沙雞翼"}]}
+        {name: "咖喱牛腩飯", customization: "少飯,走蒜", menuName: "咖喱牛腩飯", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "12:35:32", payStatus: "notPaid", base: "飯", ingredients: [{name: "咖喱牛腩"}]},
+        {name: "豬扒雞翼撈檬", customization: "", menuName: "豬扒雞翼撈檬", shortName: "朱扒亦凍蒙", type: "regularFood", quantity: 2, price: 37, orderTime: "12:35:43", payStatus: "notPaid", base: "撈檬", ingredients: [{name: "香茅豬扒"}, {name: "風沙雞翼"}]}
       ],
       drinkItems: [
-        {name: "凍檸檬茶", customization: "走甜,少冰", shortName: "凍OT", type: "mealDrink", quantity: 2, price: 2, orderTime: "12:35:20", payStatus: "notPaid", hotCold: "cold"},
-        {name: "青檸梳打冰", customization: "", shortName: "青O", type: "mealDrink", quantity: 1, price: 6, orderTime: "12:36:40", payStatus: "notPaid", hotCold: "cold"}
+        {name: "凍檸檬茶(餐)", customization: "走甜,少冰", menuName:"凍O茶(餐)", shortName: "凍OT", type: "mealDrink", quantity: 2, price: 2, orderTime: "12:35:20", payStatus: "notPaid", hotCold: "cold"},
+        {name: "青檸梳打冰(餐)", customization: "", menuName: "青O(餐)", shortName: "青O", type: "mealDrink", quantity: 1, price: 6, orderTime: "12:36:40", payStatus: "notPaid", hotCold: "cold"}
       ]
     }
   }
@@ -41,12 +41,12 @@ export const TABLE_ORDERS = [
     tableInfo: {tableNumber: "2", tableSubNumber: "A", numOfPeople: 4},
     orderList: {
       foodItems: [
-        {name: "咖喱牛腩飯", customization: "少飯,走蒜", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "12:35:23", payStatus: "notPaid", base: "飯", ingredients: [{name: "咖喱牛腩"}]},
-        {name: "香茅豬扒風沙雞翼撈檬", customization: "", shortName: "朱扒亦凍蒙", type: "regularFood", quantity: 2, price: 37, orderTime: "12:35:40", payStatus: "notPaid", base: "撈檬", ingredients: [{name: "香茅豬扒"}, {name: "風沙雞翼"}]}
+        {name: "咖喱牛腩飯", customization: "少飯,走蒜", menuName: "咖喱牛腩飯", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "12:35:23", payStatus: "notPaid", base: "飯", ingredients: [{name: "咖喱牛腩"}]},
+        {name: "豬扒雞翼撈檬", customization: "", menuName: "豬扒雞翼撈檬", shortName: "朱扒亦凍蒙", type: "regularFood", quantity: 2, price: 37, orderTime: "12:35:40", payStatus: "notPaid", base: "撈檬", ingredients: [{name: "香茅豬扒"}, {name: "風沙雞翼"}]}
       ],
       drinkItems: [
-        {name: "凍檸檬茶", customization: "走甜,少冰", shortName: "凍OT", type: "mealDrink", quantity: 2, price: 2, orderTime: "12:35:04", payStatus: "notPaid", hotCold: "cold"},
-        {name: "青檸梳打冰", customization: "", shortName: "青O", type: "mealDrink", quantity: 1, price: 6, orderTime: "12:36:50", payStatus: "notPaid", hotCold: "cold"}
+        {name: "凍檸檬茶(餐)", customization: "走甜,少冰", menuName:"凍O茶(餐)", shortName: "凍OT", type: "mealDrink", quantity: 2, price: 2, orderTime: "12:35:04", payStatus: "notPaid", hotCold: "cold"},
+        {name: "青檸梳打冰(餐)", customization: "", menuName: "青O(餐)", shortName: "青O", type: "mealDrink", quantity: 1, price: 6, orderTime: "12:36:50", payStatus: "notPaid", hotCold: "cold"}
       ]
     }
  },
@@ -57,8 +57,8 @@ export const TABLE_ORDERS = [
    tableInfo: {tableNumber: "1", tableSubNumber: "D", numOfPeople: 3},
    orderList: {
      foodItems: [
-       {name: "咖喱牛腩飯", customization: "少飯,走蒜", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "18:30:24", payStatus: "notPaid", base: "飯", ingredients: [{name: "咖喱牛腩"}]},
-       {name: "香茅豬扒風沙雞翼撈檬", customization: "", shortName: "朱扒亦凍蒙", type: "regularFood", quantity: 2, price: 37, orderTime: "19:05:35", payStatus: "notPaid", base: "撈檬", ingredients: [{name: "香茅豬扒"}, {name: "風沙雞翼"}]}
+       {name: "咖喱牛腩飯", customization: "少飯,走蒜", menuName: "咖喱牛腩飯", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "18:30:24", payStatus: "notPaid", base: "飯", ingredients: [{name: "咖喱牛腩"}]},
+       {name: "豬扒雞翼撈檬", customization: "", menuName: "豬扒雞翼撈檬", shortName: "朱扒亦凍蒙", type: "regularFood", quantity: 2, price: 37, orderTime: "19:05:35", payStatus: "notPaid", base: "撈檬", ingredients: [{name: "香茅豬扒"}, {name: "風沙雞翼"}]}
      ],
      drinkItems: []
    }
@@ -71,8 +71,8 @@ export const TABLE_ORDERS = [
    orderList: {
      foodItems: [],
      drinkItems: [
-       {name: "凍檸檬茶", customization: "走甜,少冰", shortName: "凍OT", type: "mealDrink", quantity: 2, price: 28, orderTime: "13:11:23", payStatus: "notPaid", hotCold: "cold"},
-       {name: "青檸梳打冰", customization: "", shortName: "青O", type: "mealDrink", quantity: 1, price: 18, orderTime: "13:15:40", payStatus: "notPaid", hotCold: "cold"}
+       {name: "凍檸檬茶", customization: "走甜,少冰", menuName: "凍O茶", shortName: "凍OT", type: "mealDrink", quantity: 2, price: 28, orderTime: "13:11:23", payStatus: "notPaid", hotCold: "cold"},
+       {name: "青檸梳打冰", customization: "", menuName: "青O", shortName: "青O", type: "mealDrink", quantity: 1, price: 18, orderTime: "13:15:40", payStatus: "notPaid", hotCold: "cold"}
      ]
    }
  }
@@ -85,12 +85,12 @@ export const ORDER_SAMPLE_DELIVERY = {
   deliveryInfo: {deliveryAddress: "250鴨寮街", deliveryPhoneNumber: "2580 0983", notes: "extra chopsticks"},
   orderList: {
     foodItems: [
-      {name: "咖喱牛腩飯", customization: "少飯,走蒜", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "12:35:43", payStatus: "notPaid", base: "飯", ingredients: [{name: "咖喱牛腩"}]},
-      {name: "香茅豬扒風沙雞翼撈檬", customization: "", shortName: "朱扒亦凍蒙", type: "regularFood", quantity: 2, price: 37, orderTime: "12:35:56", payStatus: "notPaid", base: "撈檬", ingredients: [{name: "香茅豬扒"}, {name: "風沙雞翼"}]}
+      {name: "咖喱牛腩飯", customization: "少飯,走蒜", menuName: "咖喱牛腩飯", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "12:35:43", payStatus: "notPaid", base: "飯", ingredients: [{name: "咖喱牛腩"}]},
+      {name: "豬扒雞翼撈檬", customization: "", menuName: "豬扒雞翼撈檬", shortName: "朱扒亦凍蒙", type: "regularFood", quantity: 2, price: 37, orderTime: "12:35:56", payStatus: "notPaid", base: "撈檬", ingredients: [{name: "香茅豬扒"}, {name: "風沙雞翼"}]}
     ],
     drinkItems: [
-      {name: "凍檸檬茶", customization: "走甜,少冰", shortName: "凍OT", type: "mealDrink", quantity: 2, price: 2, orderTime: "12:35:45", payStatus: "notPaid", hotCold: "cold"},
-      {name: "青檸梳打冰", customization: "", shortName: "青O", type: "mealDrink", quantity: 1, price: 6, orderTime: "12:36:04", payStatus: "notPaid", hotCold: "cold"}
+      {name: "凍檸檬茶(餐)", customization: "走甜,少冰", menuName:"凍O茶(餐)", shortName: "凍OT", type: "mealDrink", quantity: 2, price: 2, orderTime: "12:35:45", payStatus: "notPaid", hotCold: "cold"},
+      {name: "青檸梳打冰(餐)", customization: "", menuName: "青O(餐)", shortName: "青O", type: "mealDrink", quantity: 1, price: 6, orderTime: "12:36:04", payStatus: "notPaid", hotCold: "cold"}
     ]
   }
 }
@@ -102,12 +102,12 @@ export const ORDER_SAMPLE_TABLE = {
   tableInfo: {tableNumber: "2", tableSubNumber: "A", numOfPeople: 4},
   orderList: {
     foodItems: [
-      {name: "咖喱牛腩飯", customization: "少飯,走蒜", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "12:35:23", payStatus: "notPaid", base: "飯", ingredients: [{name: "咖喱牛腩"}]},
-      {name: "香茅豬扒風沙雞翼撈檬", customization: "", shortName: "朱扒亦凍蒙", type: "regularFood", quantity: 2, price: 37, orderTime: "12:35:40", payStatus: "notPaid", base: "撈檬", ingredients: [{name: "香茅豬扒"}, {name: "風沙雞翼"}]}
+      {name: "咖喱牛腩飯", customization: "少飯,走蒜", menuName: "咖喱牛腩飯", shortName: "喱反", type: "regularFood", quantity: 1, price: 37, orderTime: "12:35:23", payStatus: "notPaid", base: "飯", ingredients: [{name: "咖喱牛腩"}]},
+      {name: "豬扒雞翼撈檬", customization: "", menuName: "豬扒雞翼撈檬", shortName: "朱扒亦凍蒙", type: "regularFood", quantity: 2, price: 37, orderTime: "12:35:40", payStatus: "notPaid", base: "撈檬", ingredients: [{name: "香茅豬扒"}, {name: "風沙雞翼"}]}
     ],
     drinkItems: [
-      {name: "凍檸檬茶", customization: "走甜,少冰", shortName: "凍OT", type: "mealDrink", quantity: 2, price: 2, orderTime: "12:35:04", payStatus: "notPaid", hotCold: "cold"},
-      {name: "青檸梳打冰", customization: "", shortName: "青O", type: "mealDrink", quantity: 1, price: 6, orderTime: "12:36:50", payStatus: "notPaid", hotCold: "cold"}
+      {name: "凍檸檬茶(餐)", customization: "走甜,少冰", menuName:"凍O茶(餐)", shortName: "凍OT", type: "mealDrink", quantity: 2, price: 2, orderTime: "12:35:04", payStatus: "notPaid", hotCold: "cold"},
+      {name: "青檸梳打冰(餐)", customization: "", menuName: "青O(餐)", shortName: "青O", type: "mealDrink", quantity: 1, price: 6, orderTime: "12:36:50", payStatus: "notPaid", hotCold: "cold"}
     ]
   }
 }
@@ -176,28 +176,28 @@ export const MENU_DRINKS = [
 ]
 
 export const MENU_DRINKS_MEAL = [
-  {name: "香濃滴漏咖啡(餐)", menuName: "滴啡", shortName: "的", hotCold: "hot", type: "mealDrink", price: 5},
-  {name: "凍香濃滴漏咖啡(餐)", menuName: "凍滴啡", shortName: "凍的", hotCold: "cold", type: "mealDrink", price: 7},
-  {name: "檸檬茶(餐)", menuName: "O茶", shortName: "OT", hotCold: "hot", type: "mealDrink", price: 0},
-  {name: "凍檸檬茶(餐)", menuName: "凍O茶", shortName: "凍OT", hotCold: "cold", type: "mealDrink", price: 2},
-  {name: "青檸梳打冰(餐)", menuName: "青O", shortName: "青O", hotCold: "cold", type: "mealDrink", price: 6},
-  {name: "香濃即溶咖啡(餐)", menuName: "即溶", shortName: "即溶", hotCold: "hot", type: "mealDrink", price: 0},
-  {name: "凍香濃即溶咖啡(餐)", menuName: "凍即溶", shortName: "凍即溶", hotCold: "cold", type: "mealDrink", price: 2},
-  {name: "檸檬水(餐)", menuName: "O水", shortName: "O水", hotCold: "hot", type: "mealDrink", price: 0},
-  {name: "凍檸檬水(餐)", menuName: "凍O水", shortName: "凍O水", hotCold: "cold", type: "mealDrink", price: 2},
-  {name: "汽水(餐)", menuName: "汽水", shortName: "汽水", hotCold: "cold", type: "mealDrink", price: 0},
-  {name: "奶茶(餐)", menuName: "奶茶", shortName: "奶T", hotCold: "hot", type: "mealDrink", price: 0},
-  {name: "凍奶茶(餐)", menuName: "凍奶茶", shortName: "凍奶T", hotCold: "cold", type: "mealDrink", price: 2},
-  {name: "阿華田(餐)", menuName: "華田", shortName: "田", hotCold: "hot", type: "mealDrink", price: 0},
-  {name: "凍阿華田(餐)", menuName: "凍華田", shortName: "凍田", hotCold: "cold", type: "mealDrink", price: 2},
-  {name: "杏仁霜(餐)", menuName: "杏霜", shortName: "杏", hotCold: "hot", type: "mealDrink", price: 0},
-  {name: "咖啡(餐)", menuName: "咖啡", shortName: "啡", hotCold: "hot", type: "mealDrink", price: 0},
-  {name: "凍咖啡(餐)", menuName: "凍咖啡", shortName: "凍啡", hotCold: "cold", type: "mealDrink", price: 2},
-  {name: "好立克(餐)", menuName: "立克", shortName: "立", hotCold: "hot", type: "mealDrink", price: 0},
-  {name: "凍好立克(餐)", menuName: "凍立克", shortName: "凍立", hotCold: "cold", type: "mealDrink", price: 2},
-  {name: "凍杏仁霜(餐)", menuName: "凍仁霜", shortName: "凍杏", hotCold: "cold", type: "mealDrink", price: 2},
-  {name: "鴛鴦(餐)", menuName: "鴛鴦", shortName: "央", hotCold: "hot", type: "mealDrink", price: 0},
-  {name: "凍鴛鴦(餐)", menuName: "凍鴛鴦", shortName: "凍央", hotCold: "cold", type: "mealDrink", price: 2},
+  {name: "香濃滴漏咖啡(餐)", menuName: "滴啡(餐)", shortName: "的", hotCold: "hot", type: "mealDrink", price: 5},
+  {name: "凍香濃滴漏咖啡(餐)", menuName: "凍滴啡(餐)", shortName: "凍的", hotCold: "cold", type: "mealDrink", price: 7},
+  {name: "檸檬茶(餐)", menuName: "O茶(餐)", shortName: "OT", hotCold: "hot", type: "mealDrink", price: 0},
+  {name: "凍檸檬茶(餐)", menuName: "凍O茶(餐)", shortName: "凍OT", hotCold: "cold", type: "mealDrink", price: 2},
+  {name: "青檸梳打冰(餐)", menuName: "青O(餐)", shortName: "青O", hotCold: "cold", type: "mealDrink", price: 6},
+  {name: "香濃即溶咖啡(餐)", menuName: "即溶(餐)", shortName: "即溶", hotCold: "hot", type: "mealDrink", price: 0},
+  {name: "凍香濃即溶咖啡(餐)", menuName: "凍即溶(餐)", shortName: "凍即溶", hotCold: "cold", type: "mealDrink", price: 2},
+  {name: "檸檬水(餐)", menuName: "O水(餐)", shortName: "O水", hotCold: "hot", type: "mealDrink", price: 0},
+  {name: "凍檸檬水(餐)", menuName: "凍O水(餐)", shortName: "凍O水", hotCold: "cold", type: "mealDrink", price: 2},
+  {name: "汽水(餐)", menuName: "汽水(餐)", shortName: "汽水", hotCold: "cold", type: "mealDrink", price: 0},
+  {name: "奶茶(餐)", menuName: "奶茶(餐)", shortName: "奶T", hotCold: "hot", type: "mealDrink", price: 0},
+  {name: "凍奶茶(餐)", menuName: "凍奶茶(餐)", shortName: "凍奶T", hotCold: "cold", type: "mealDrink", price: 2},
+  {name: "阿華田(餐)", menuName: "華田(餐)", shortName: "田", hotCold: "hot", type: "mealDrink", price: 0},
+  {name: "凍阿華田(餐)", menuName: "凍華田(餐)", shortName: "凍田", hotCold: "cold", type: "mealDrink", price: 2},
+  {name: "杏仁霜(餐)", menuName: "杏霜(餐)", shortName: "杏", hotCold: "hot", type: "mealDrink", price: 0},
+  {name: "咖啡(餐)", menuName: "咖啡(餐)", shortName: "啡", hotCold: "hot", type: "mealDrink", price: 0},
+  {name: "凍咖啡(餐)", menuName: "凍咖啡(餐)", shortName: "凍啡", hotCold: "cold", type: "mealDrink", price: 2},
+  {name: "好立克(餐)", menuName: "立克(餐)", shortName: "立", hotCold: "hot", type: "mealDrink", price: 0},
+  {name: "凍好立克(餐)", menuName: "凍立克(餐)", shortName: "凍立", hotCold: "cold", type: "mealDrink", price: 2},
+  {name: "凍杏仁霜(餐)", menuName: "凍仁霜(餐)", shortName: "凍杏", hotCold: "cold", type: "mealDrink", price: 2},
+  {name: "鴛鴦(餐)", menuName: "鴛鴦(餐)", shortName: "央", hotCold: "hot", type: "mealDrink", price: 0},
+  {name: "凍鴛鴦(餐)", menuName: "凍鴛鴦(餐)", shortName: "凍央", hotCold: "cold", type: "mealDrink", price: 2},
   {name: "不飲", menuName: "不飲", shortName: "不飲", hotCold: "", type: "mealDrink", price: -2},
 ]
 

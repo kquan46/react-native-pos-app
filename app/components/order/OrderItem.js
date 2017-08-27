@@ -26,14 +26,14 @@ class OrderItem extends Component {
     return (
       <View style={styles.orderItem}>
         <View style={styles.time}>
-          <Text>{this.formatTime(this.props.item.orderTime)}</Text>
+          <Text style={styles.timeText}>{this.formatTime(this.props.item.orderTime)}</Text>
         </View>
         <OrderItemCustomization>
-          <Text>{this.props.item.name}</Text>
+          <Text style={styles.text}>{this.props.item.menuName}</Text>
           {this.splitCustomization(this.props.item.customization)}
         </OrderItemCustomization>
-        <View style={styles.text}>
-          <Text>{this.props.item.quantity}</Text>
+        <View style={styles.quantity}>
+          <Text style={styles.text}>{this.props.item.quantity}</Text>
         </View>
         <View style={styles.price}>
           <Text style={styles.priceText}>{this.props.item.price}</Text>
@@ -52,19 +52,27 @@ const styles = StyleSheet.create({
       paddingRight: 10,
   },
   time: {
-      flex: 1.5,
-      alignItems: "flex-start"
+      flex: 0.9,
+      alignItems: "center",
+      paddingRight: 4
   },
-  text: {
-      flex: 1,
+  quantity: {
+      flex: 0.7,
       alignItems: "center"
   },
   priceText: {
       textAlign: "right",
-      paddingRight: 10
+      paddingRight: 10,
+      fontSize: 16
   },
   price: {
-    flex: 1,
+    flex: 0.8,
+  },
+  text: {
+    fontSize: 17
+  },
+  timeText: {
+    fontSize: 16
   }
 })
 
