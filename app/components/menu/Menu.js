@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, } from 'react-native'
 import { Router, Scene } from 'react-native-router-flux'
 
-import MenuTab from './MenuTab'
 import MenuTab1 from './MenuTab1'
 import MenuTab2 from './MenuTab2'
 import MenuTab3 from './MenuTab3'

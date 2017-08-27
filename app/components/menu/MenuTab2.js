@@ -2,10 +2,9 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, ListView } from 'react-native'
 
-import MenuList from './MenuList'
 import MenuListFood from './MenuListFood'
 import MenuListDrink from './MenuListDrink'
-import MenuActions from './MenuActions'
+import MenuActionsMeal from './MenuActionsMeal'
 
 class MenuTab2 extends Component {
   constructor(props) {
@@ -32,7 +31,7 @@ class MenuTab2 extends Component {
           <MenuListFood menuList={this.props.menuList.baseMiniSet} />
           <MenuListDrink menuList={this.props.menuList.drinksMeal} />
         </View>
-        <MenuActions />
+        <MenuActionsMeal />
       </View>
     )
   }

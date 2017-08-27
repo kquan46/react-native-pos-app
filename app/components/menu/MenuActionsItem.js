@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as orderActions from '../../actions/orderActions'
 
-class MenuActions extends Component {
+class MenuActionsItem extends Component {
 
   constructor(props) {
     super(props)
@@ -13,16 +13,19 @@ class MenuActions extends Component {
     }
   }
 
-  addItems(drinkItem, orderNumber) {
+  addItems(drinkItem, foodItem, orderNumber) {
     if (drinkItem.name)
       this.props.findOrderAndAddDrinkItem(drinkItem, orderNumber)
+    if (foodItem.ingredients.length > 0)
+      this.props.findOrderAndAddFoodItem(foodItem, orderNumber)
+    else console.log("nothing to add")
   }
 
   render () {
     return (
       <View style={styles.menuActions}>
         <View style={styles.placeholder} />
-        <TouchableOpacity style={styles.button} onPress={() => {this.addItems(this.props.drinkItem, this.props.order.orderNumber)}}>
+        <TouchableOpacity style={styles.button} onPress={() => {this.addItems(this.props.drinkItem, this.props.foodItem, this.props.order.orderNumber)}}>
           <Text>Add Item</Text>
         </TouchableOpacity>
       </View>
@@ -37,6 +40,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     drinkItem: state.drinkItem,
+    foodItem: state.foodItem,
     order: state.order
   }
 }
@@ -61,4 +65,4 @@ const styles = StyleSheet.create({
     }
 })
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(MenuActions)
+module.exports = connect(mapStateToProps, mapDispatchToProps)(MenuActionsItem)

@@ -2,7 +2,6 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, ListView } from 'react-native'
 
-import MenuItem from './MenuItem'
 import MenuItemIngredient from './MenuItemIngredient'
 import MenuItemDrink from './MenuItemDrink'
 import MenuItemBase from './MenuItemBase'

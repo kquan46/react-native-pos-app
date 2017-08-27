@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, ListView } from 'react-native'
 
 import MenuListDrink from './MenuListDrink'
-import MenuActions from './MenuActions'
+import MenuActionsItem from './MenuActionsItem'
 
 class MenuTab4 extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class MenuTab4 extends Component {
         <View style={styles.subMenu}>
           <MenuListDrink menuList={this.props.menuList.drinks} />
         </View>
-        <MenuActions />
+        <MenuActionsItem />
       </View>
     )
   }

@@ -14,15 +14,16 @@ class MenuItemBase extends Component {
   }
 
   ToggleBase(baseItem) {
-    if (this.props.foodItem.base.name !== this.props.item.name) {
-      if (this.props.item.name != null)
-        this.props.selectBase(baseItem)
-      }
-    else this.props.clearBaseItem()
+    if (this.props.foodItem.base) {
+      if (this.props.foodItem.base.name === this.props.item.name)
+        this.props.clearBaseItem()
+      else this.props.selectBase(baseItem)
+    }
+    else this.props.selectBase(baseItem)
   }
 
   getStyle(){
-    if (this.props.item.name == null)
+    if (this.props.item.name == null || this.props.foodItem.base == null)
       return styles.itemNotSelected
     else if (this.props.foodItem.base.name === this.props.item.name)
       return styles.itemSelected

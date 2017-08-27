@@ -43,6 +43,28 @@ export function findOrderAndAddDrinkItem(drinkItem, orderNumber) {
   }
 }
 
+export function findOrderAndAddFoodItem(foodItem, orderNumber) {
+  return (dispatch, getState) => {
+    dispatch(addFoodItem(foodItem, orderNumber))
+    const newState = getState().orders
+    let index = newState.findIndex((order) => order.orderNumber === orderNumber)
+    var currentOrder = newState[index]
+    dispatch(selectOrder(currentOrder))
+    dispatch(clearFoodItem())
+  }
+}
+
+export function findOrderAndAddMealItem(foodItem, orderNumber) {
+  return (dispatch, getState) => {
+    dispatch(addMealItem(foodItem, orderNumber))
+    const newState = getState().orders
+    let index = newState.findIndex((order) => order.orderNumber === orderNumber)
+    var currentOrder = newState[index]
+    dispatch(selectOrder(currentOrder))
+    dispatch(clearFoodItem())
+  }
+}
+
 export function clearAndSelectIngredient(ingredientItem) {
   return (dispatch, getState) => {
     dispatch(clearIngredients())
@@ -164,8 +186,24 @@ export function clearIngredients() {
   }
 }
 
+export function addFoodItem(foodItem, orderNumber) {
+  return{
+    type: types.ADD_ITEM_FOOD,
+    foodItem,
+    orderNumber
+  }
+}
+
 export function clearFoodItem() {
   return {
     type: types.CLEAR_ITEM_FOOD
+  }
+}
+
+export function addMealItem(foodItem, orderNumber) {
+  return {
+    type: types.ADD_ITEM_MEAL,
+    foodItem,
+    orderNumber
   }
 }

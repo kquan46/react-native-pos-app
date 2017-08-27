@@ -54,6 +54,11 @@ export function orders(state = [], action) {
         ...state.slice(0, index),
         {
           ...state[index],
+          orderInfo: {
+            ...state[index].orderInfo,
+            numOfItems: state[index].orderInfo.numOfItems + 1,
+            totalPrice: state[index].orderInfo.totalPrice + action.drinkItem.price
+          },
           orderList: {
             ...state[index].orderList,
             drinkItems: [
@@ -82,22 +87,75 @@ export function orders(state = [], action) {
         ...state.slice(0, index),
         {
           ...state[index],
+          orderInfo: {
+            ...state[index].orderInfo,
+            numOfItems: state[index].orderInfo.numOfItems + action.foodItem.quantity,
+            totalPrice: state[index].orderInfo.totalPrice + action.foodItem.ingredients[0].price
+          },
           orderList: {
             ...state[index].orderList,
             foodItems: [
               ...state[index].orderList.foodItems,
               {
-                name: "",
+                name: action.foodItem.ingredients[0].name,
                 customization: null,
-                shortName: "",
-                menuName: "",
-                type: "",
-                quantity: 1,
-                price: "",
+                shortName: action.foodItem.ingredients[0].shortName,
+                menuName: action.foodItem.ingredients[0].menuName,
+                type: action.foodItem.ingredients[0].type,
+                quantity: action.foodItem.quantity,
+                price: action.foodItem.ingredients[0].price,
                 orderTime: getTime(),
                 payStatus: "notPaid",
-                base: "",
-                ingredients: []
+                base: null,
+                ingredients: [{name: action.foodItem.ingredients[0].name}]
+              }
+            ]
+          }
+        },
+        ...state.slice(index + 1)
+      ]
+    }
+    case types.ADD_ITEM_MEAL: {
+      let index = state.findIndex((order) => order.orderNumber === action.orderNumber)
+      let mealName = ""
+      let mealShortName = ""
+      let mealMenuName = ""
+      let mealPrice = 0
+      action.foodItem.ingredients.map(function(i) {
+        mealName += i.name
+        mealShortName += i.shortName
+        mealMenuName += i.menuName
+        mealPrice += i.price
+      })
+      mealName += action.foodItem.base.name
+      mealShortName += action.foodItem.base.shortName
+      mealMenuName += action.foodItem.base.menuName
+      mealPrice += action.foodItem.base.price
+      return [
+        ...state.slice(0, index),
+        {
+          ...state[index],
+          orderInfo: {
+            ...state[index].orderInfo,
+            numOfItems: state[index].orderInfo.numOfItems + action.foodItem.quantity,
+            totalPrice: state[index].orderInfo.totalPrice + mealPrice
+          },
+          orderList: {
+            ...state[index].orderList,
+            foodItems: [
+              ...state[index].orderList.foodItems,
+              {
+                name: mealName,
+                customization: null,
+                shortName: mealShortName,
+                menuName: mealMenuName,
+                type: "meal",
+                quantity: action.foodItem.quantity,
+                price: mealPrice,
+                orderTime: getTime(),
+                payStatus: "notPaid",
+                base: action.foodItem.base,
+                ingredients: action.foodItem.ingredients
               }
             ]
           }
@@ -140,16 +198,10 @@ export function foodItem(state = sampleData.FOOD_ITEM_DEFAULT, action) {
     case types.CLEAR_ITEM_INGREDIENTS:
       return {...state, ingredients: []}
     case types.CLEAR_ITEM_BASE:
-      return {...state, base: {}}
+      return {...state, base: null}
     case types.SELECT_INGREDIENT:
       return {...state, ingredients: [...state.ingredients, action.ingredientItem]}
-    case types.DESELECT_INGREDIENT: {/*}{
-      let index = state.ingredients.findIndex((ingredient) => ingredient.name === action.ingredientItem.name)
-      return {
-        ...state,
-        ingredients: [...state.ingredients.slice(0,index), ...state.ingredients.slice(index+1)]
-      }
-    }*/}
+    case types.DESELECT_INGREDIENT:
       return {...state, ingredients: state.ingredients.filter(i => i.name !== action.ingredientItem.name)}
     case types.SELECT_BASE:
       return {...state, base: action.baseItem}
