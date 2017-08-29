@@ -39,11 +39,13 @@ class TableSubNumber extends Component {
   render () {
 
     return (
-      <TouchableOpacity style={styles.tableSubNumber} onPress={() => {this.handleOnPress()}}>
-        <View style={this.getStyle()}>
-          <Text style={styles.text}>{this.props.tableSubNumber}</Text>
-        </View>
-      </TouchableOpacity>
+      <View style={styles.tableSubNumber} >
+        <TouchableOpacity onPress={() => {this.handleOnPress()}}>
+          <View style={this.getStyle()}>
+            <Text style={styles.text}>{this.props.tableSubNumber}</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     )
   }
 }

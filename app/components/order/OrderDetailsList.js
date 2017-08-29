@@ -5,15 +5,21 @@ import { Text, View, ScrollView, StyleSheet } from 'react-native'
 import OrderItem from './OrderItem'
 
 class OrderDetailsList extends Component {
-    render () {
-        return (
-          <View style={styles.orderDetailsList}>
-            <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false} alwaysBounceVertical={false}>
-              {this.props.children}
-            </ScrollView>
-          </View>
-        )
+  constructor(props) {
+    super(props)
+    this.state = {
     }
+  }
+
+  render () {
+    return (
+      <View style={styles.orderDetailsList}>
+        <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false} alwaysBounceVertical={false}>
+          {this.props.children}
+        </ScrollView>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({

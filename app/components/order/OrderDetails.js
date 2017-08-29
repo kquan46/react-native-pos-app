@@ -11,10 +11,6 @@ class OrderDetails extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      foodItems: [],
-      drinkItems: [],
-      totalPrice: "",
-      numOfItems: ""
     }
   }
 

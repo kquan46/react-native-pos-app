@@ -1,6 +1,7 @@
 'use strict'
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, } from 'react-native'
+import Swipeout from 'react-native-swipeout'
 
 import OrderItemCustomization from './OrderItemCustomization'
 
@@ -11,10 +12,6 @@ class OrderItem extends Component {
     }
   }
 
-  splitCustomization(customizations) {
-
-  }
-
   formatTime(time) {
     if (time != null) {
       var newTime = time.slice(0,5)
@@ -23,7 +20,16 @@ class OrderItem extends Component {
   }
 
   render () {
+    let swipeRightButtons = [{
+      text: 'Delete',
+      backgroundColor: 'red'
+    }]
+    let swipeLeftButtons = [{
+      text: 'Edit',
+      backgroundColor: 'blue'
+    }]
     return (
+      <Swipeout right={swipeRightButtons} left={swipeLeftButtons}>
       <View style={styles.orderItem}>
         <View style={styles.time}>
           <Text style={styles.timeText}>{this.formatTime(this.props.item.orderTime)}</Text>
@@ -39,6 +45,7 @@ class OrderItem extends Component {
           <Text style={styles.priceText}>{this.props.item.price}</Text>
         </View>
       </View>
+      </Swipeout>
     )
   }
 }
