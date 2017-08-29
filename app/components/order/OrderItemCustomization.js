@@ -3,21 +3,29 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, } from 'react-native'
 
 class OrderItemCustomization extends Component {
-    render () {
-        return (
-          <View style={styles.orderItemCustomization}>
-            {this.props.children}
-          </View>
-        )
+  constructor(props) {
+    super(props)
+    this.state = {
     }
+  }
+
+  splitCustomization(customizations) {
+
+  }
+
+  render () {
+    let split = this.props.customization === "" ? [] : this.props.customization.split(',')
+    return (
+      <View>
+      {split.map(i => <Text style={styles.text}>  •{i}</Text>)}
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
-    orderItemCustomization: {
-        flex: 3,
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "flex-start"
+    text: {
+      fontSize: 15
     }
 })
 

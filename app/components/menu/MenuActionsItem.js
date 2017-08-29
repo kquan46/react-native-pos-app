@@ -14,7 +14,7 @@ class MenuActionsItem extends Component {
   }
 
   addItems(drinkItem, foodItem, orderNumber) {
-    if (drinkItem.name)
+    if (drinkItem.drink)
       this.props.findOrderAndAddDrinkItem(drinkItem, orderNumber)
     if (foodItem.ingredients.length > 0)
       this.props.findOrderAndAddFoodItem(foodItem, orderNumber)

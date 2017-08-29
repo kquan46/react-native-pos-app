@@ -153,6 +153,12 @@ export function clearDrinkItem() {
   }
 }
 
+export function clearDrink() {
+  return {
+    type: types.CLEAR_DRINK
+  }
+}
+
 export function selectBase(baseItem) {
   return {
     type: types.SELECT_BASE,

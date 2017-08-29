@@ -56,24 +56,24 @@ export function orders(state = [], action) {
           ...state[index],
           orderInfo: {
             ...state[index].orderInfo,
-            numOfItems: state[index].orderInfo.numOfItems + 1,
-            totalPrice: state[index].orderInfo.totalPrice + action.drinkItem.price
+            numOfItems: state[index].orderInfo.numOfItems + action.drinkItem.quantity,
+            totalPrice: state[index].orderInfo.totalPrice + action.drinkItem.drink.price
           },
           orderList: {
             ...state[index].orderList,
             drinkItems: [
               ...state[index].orderList.drinkItems,
               {
-                name: action.drinkItem.name,
-                customization: null,
-                shortName: action.drinkItem.shortName,
-                menuName: action.drinkItem.menuName,
-                type: action.drinkItem.type,
-                quantity: 1,
-                price: action.drinkItem.price,
+                name: action.drinkItem.drink.name,
+                customization: "",
+                shortName: action.drinkItem.drink.shortName,
+                menuName: action.drinkItem.drink.menuName,
+                type: action.drinkItem.drink.type,
+                quantity: action.drinkItem.quantity,
+                price: action.drinkItem.drink.price,
                 orderTime: getTime(),
                 payStatus: "notPaid",
-                hotCold: action.drinkItem.hotCold
+                hotCold: action.drinkItem.drink.hotCold
               }
             ]
           }
@@ -98,7 +98,7 @@ export function orders(state = [], action) {
               ...state[index].orderList.foodItems,
               {
                 name: action.foodItem.ingredients[0].name,
-                customization: null,
+                customization: "",
                 shortName: action.foodItem.ingredients[0].shortName,
                 menuName: action.foodItem.ingredients[0].menuName,
                 type: action.foodItem.ingredients[0].type,
@@ -146,7 +146,7 @@ export function orders(state = [], action) {
               ...state[index].orderList.foodItems,
               {
                 name: mealName,
-                customization: null,
+                customization: "",
                 shortName: mealShortName,
                 menuName: mealMenuName,
                 type: "meal",
@@ -180,12 +180,14 @@ export function order(state = sampleData.ORDER_DEFAULT, action) {
   }
 }
 
-export function drinkItem(state = {}, action) {
+export function drinkItem(state = sampleData.DRINK_ITEM_DEFAULT, action) {
   switch (action.type) {
-    case types.SELECT_DRINK:
-      return action.drinkItem
     case types.CLEAR_ITEM_DRINK:
-      return {}
+      return sampleData.DRINK_ITEM_DEFAULT
+    case types.SELECT_DRINK:
+      return {...state, drink: action.drinkItem}
+    case types.CLEAR_DRINK:
+      return {...state, drink: null}
     default:
       return state
   }

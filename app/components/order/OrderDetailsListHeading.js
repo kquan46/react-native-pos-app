@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         paddingBottom: 4,
-        borderBottomWidth: 1
+        borderBottomWidth: 0.5
     },
     time: {
         flex: 0.9,

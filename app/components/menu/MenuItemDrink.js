@@ -14,17 +14,18 @@ class MenuItemDrink extends Component {
   }
 
   toggleDrink(drinkItem) {
-    if (this.props.drinkItem.name !== this.props.item.name) {
-      if (this.props.item.name != null)
-        this.props.selectDrink(drinkItem)
-      }
-    else this.props.clearDrinkItem()
+    if (this.props.drinkItem.drink) {
+      if (this.props.drinkItem.drink.name === this.props.item.name)
+        this.props.clearDrink()
+      else this.props.selectDrink(drinkItem)
+    }
+    else this.props.selectDrink(drinkItem)
   }
 
   getStyle(){
-    if (this.props.item.name == null)
+    if (this.props.item.name == null || this.props.drinkItem.drink == null)
       return styles.itemNotSelected
-    if (this.props.drinkItem.name === this.props.item.name)
+    else if (this.props.drinkItem.drink.name === this.props.item.name)
       return styles.itemSelected
     else return styles.itemNotSelected
   }

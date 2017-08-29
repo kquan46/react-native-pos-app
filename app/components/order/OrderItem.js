@@ -28,10 +28,10 @@ class OrderItem extends Component {
         <View style={styles.time}>
           <Text style={styles.timeText}>{this.formatTime(this.props.item.orderTime)}</Text>
         </View>
-        <OrderItemCustomization>
+        <View style={styles.customization}>
           <Text style={styles.text}>{this.props.item.menuName}</Text>
-          {this.splitCustomization(this.props.item.customization)}
-        </OrderItemCustomization>
+          <OrderItemCustomization customization={this.props.item.customization}/>
+        </View>
         <View style={styles.quantity}>
           <Text style={styles.text}>{this.props.item.quantity}</Text>
         </View>
@@ -50,6 +50,13 @@ const styles = StyleSheet.create({
       alignItems: "stretch",
       paddingLeft: 10,
       paddingRight: 10,
+      paddingBottom: 3
+  },
+  customization: {
+    flex: 3,
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "flex-start"
   },
   time: {
       flex: 0.9,
