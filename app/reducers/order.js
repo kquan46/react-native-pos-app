@@ -163,6 +163,78 @@ export function orders(state = [], action) {
         ...state.slice(index + 1)
       ]
     }
+    case types.CHANGE_QUANTITY_FOOD: {
+      let orderIndex = state.findIndex((order) => order.orderNumber === action.orderNumber)
+      let itemIndex = state[orderIndex].orderList.foodItems.findIndex((item) => item.name === action.item.name)
+      return [
+        ...state.slice(0, orderIndex),
+        {
+          ...state[orderIndex],
+          orderList: {
+            ...state[orderIndex].orderList,
+            foodItems: [
+              ...state[orderIndex].orderList.foodItems.slice(0, itemIndex),
+              {
+                ...state[orderIndex].orderList.foodItems[itemIndex],
+                quantity: state[orderIndex].orderList.foodItems[itemIndex].quantity + action.quantity
+              },
+              ...state[orderIndex].orderList.foodItems.slice(itemIndex + 1)
+            ]
+          }
+        },
+        ...state.slice(orderIndex + 1)
+      ]
+    }
+    case types.CHANGE_QUANTITY_DRINK: {
+      let orderIndex = state.findIndex((order) => order.orderNumber === action.orderNumber)
+      let itemIndex = state[orderIndex].orderList.drinkItems.findIndex((item) => item.name === action.item.name)
+      return [
+        ...state.slice(0, orderIndex),
+        {
+          ...state[orderIndex],
+          orderList: {
+            ...state[orderIndex].orderList,
+            drinkItems: [
+              ...state[orderIndex].orderList.drinkItems.slice(0, itemIndex),
+              {
+                ...state[orderIndex].orderList.drinkItems[itemIndex],
+                quantity: state[orderIndex].orderList.drinkItems[itemIndex].quantity + action.quantity
+              },
+              ...state[orderIndex].orderList.drinkItems.slice(itemIndex + 1)
+            ]
+          }
+        },
+        ...state.slice(orderIndex + 1)
+      ]
+    }
+    case types.DELETE_ITEM_FOOD: {
+      let orderIndex = state.findIndex((order) => order.orderNumber === action.orderNumber)
+      return [
+        ...state.slice(0, orderIndex),
+        {
+          ...state[orderIndex],
+          orderList: {
+            ...state[orderIndex].orderList,
+            foodItems: state[orderIndex].orderList.foodItems.filter(i => i.name !== action.item.name)
+          }
+        },
+        ...state.slice(orderIndex + 1)
+      ]
+    }
+    case types.DELETE_ITEM_DRINK: {
+      let orderIndex = state.findIndex((order) => order.orderNumber === action.orderNumber)
+      return [
+        ...state.slice(0, orderIndex),
+        {
+          ...state[orderIndex],
+          orderList: {
+            ...state[orderIndex].orderList,
+            drinkItems: state[orderIndex].orderList.drinkItems.filter(i => i.name !== action.item.name)
+          }
+        },
+        ...state.slice(orderIndex + 1)
+      ]
+    }
     default:
      return state
   }

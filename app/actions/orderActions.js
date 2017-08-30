@@ -33,34 +33,25 @@ export function createAndSelectDeliveryOrder(deliveryAddress, deliveryPhoneNumbe
 }
 
 export function findOrderAndAddDrinkItem(drinkItem, orderNumber) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(addDrinkItem(drinkItem, orderNumber))
-    const newState = getState().orders
-    let index = newState.findIndex((order) => order.orderNumber === orderNumber)
-    var currentOrder = newState[index]
-    dispatch(selectOrder(currentOrder))
+    dispatch(refreshOrder(orderNumber))
     dispatch(clearDrinkItem())
   }
 }
 
 export function findOrderAndAddFoodItem(foodItem, orderNumber) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(addFoodItem(foodItem, orderNumber))
-    const newState = getState().orders
-    let index = newState.findIndex((order) => order.orderNumber === orderNumber)
-    var currentOrder = newState[index]
-    dispatch(selectOrder(currentOrder))
+    dispatch(refreshOrder(orderNumber))
     dispatch(clearFoodItem())
   }
 }
 
 export function findOrderAndAddMealItem(foodItem, orderNumber) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(addMealItem(foodItem, orderNumber))
-    const newState = getState().orders
-    let index = newState.findIndex((order) => order.orderNumber === orderNumber)
-    var currentOrder = newState[index]
-    dispatch(selectOrder(currentOrder))
+    dispatch(refreshOrder(orderNumber))
     dispatch(clearFoodItem())
   }
 }
@@ -69,6 +60,36 @@ export function clearAndSelectIngredient(ingredientItem) {
   return (dispatch, getState) => {
     dispatch(clearIngredients())
     dispatch(selectIngredient(ingredientItem))
+  }
+}
+
+export function refreshOrder(orderNumber) {
+  return (dispatch, getState) => {
+    const newState = getState().orders
+    let index = newState.findIndex((order) => order.orderNumber === orderNumber)
+    var currentOrder = newState[index]
+    dispatch(selectOrder(currentOrder))
+  }
+}
+
+export function increaseQuantityAndRefresh(item, orderNumber) {
+  return (dispatch) => {
+    dispatch(increaseQuantity(item, orderNumber))
+    dispatch(refreshOrder(orderNumber))
+  }
+}
+
+export function decreaseQuantityAndRefresh(item, orderNumber) {
+  return (dispatch) => {
+    dispatch(decreaseQuantity(item, orderNumber))
+    dispatch(refreshOrder(orderNumber))
+  }
+}
+
+export function deleteItemAndRefresh(item, orderNumber) {
+  return (dispatch) => {
+    dispatch(deleteItem(item, orderNumber))
+    dispatch(refreshOrder(orderNumber))
   }
 }
 
@@ -211,5 +232,58 @@ export function addMealItem(foodItem, orderNumber) {
     type: types.ADD_ITEM_MEAL,
     foodItem,
     orderNumber
+  }
+}
+
+export function deleteItem(item, orderNumber) {
+  if (item.type === "regularFood" || item.type === "snacks")
+    return {
+      type: types.DELETE_ITEM_FOOD,
+      item,
+      orderNumber
+    }
+  else if (item.type === "mealDrink" || item.type === "regularDrink")
+  return {
+    type: types.DELETE_ITEM_DRINK,
+    item,
+    orderNumber
+  }
+}
+
+export function increaseQuantity(item, orderNumber) {
+  if (item.type === "regularFood" || item.type === "snacks") {
+    return {
+      type: types.CHANGE_QUANTITY_FOOD,
+      item,
+      orderNumber,
+      quantity: 1
+    }
+  }
+  else if (item.type === "mealDrink" || item.type === "regularDrink") {
+    return {
+      type: types.CHANGE_QUANTITY_DRINK,
+      item,
+      orderNumber,
+      quantity: 1
+    }
+  }
+}
+
+export function decreaseQuantity(item, orderNumber) {
+  if (item.type === "regularFood" || item.type === "snacks") {
+    return {
+      type: types.CHANGE_QUANTITY_FOOD,
+      item,
+      orderNumber,
+      quantity: -1
+    }
+  }
+  else if (item.type === "mealDrink" || item.type === "regularDrink") {
+    return {
+      type: types.CHANGE_QUANTITY_DRINK,
+      item,
+      orderNumber,
+      quantity: -1
+    }
   }
 }

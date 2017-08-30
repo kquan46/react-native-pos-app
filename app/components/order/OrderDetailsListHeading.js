@@ -35,12 +35,12 @@ const styles = StyleSheet.create({
         borderBottomWidth: 0.5
     },
     time: {
-        flex: 0.9,
+        flex: 0.8,
         alignItems: "center",
         paddingRight: 4
     },
     quantity: {
-        flex: 0.7,
+        flex: 1,
         alignItems: "center",
     },
     price: {

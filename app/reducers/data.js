@@ -71,8 +71,8 @@ export const TABLE_ORDERS = [
    orderList: {
      foodItems: [],
      drinkItems: [
-       {name: "凍檸檬茶", customization: "走甜,少冰", menuName: "凍O茶", shortName: "凍OT", type: "mealDrink", quantity: 2, price: 28, orderTime: "13:11:23", payStatus: "notPaid", hotCold: "cold"},
-       {name: "青檸梳打冰", customization: "", menuName: "青O", shortName: "青O", type: "mealDrink", quantity: 1, price: 18, orderTime: "13:15:40", payStatus: "notPaid", hotCold: "cold"}
+       {name: "凍檸檬茶", customization: "走甜,少冰", menuName: "凍O茶", shortName: "凍OT", type: "regularDrink", quantity: 2, price: 28, orderTime: "13:11:23", payStatus: "notPaid", hotCold: "cold"},
+       {name: "青檸梳打冰", customization: "", menuName: "青O", shortName: "青O", type: "regularDrink", quantity: 1, price: 18, orderTime: "13:15:40", payStatus: "notPaid", hotCold: "cold"}
      ]
    }
  }
