@@ -55,7 +55,7 @@ class OrderItem extends Component {
           <Text style={styles.timeText}>{this.formatTime(this.props.item.orderTime)}</Text>
         </View>
         <View style={styles.customization}>
-          <Text style={styles.text}>{this.props.item.menuName}</Text>
+          <Text style={styles.text}>{this.props.item.name}</Text>
           <OrderItemCustomization customization={this.props.item.customization}/>
         </View>
         <View style={styles.quantity}>
@@ -72,7 +72,7 @@ class OrderItem extends Component {
           </View>
         </View>
         <View style={styles.price}>
-          <Text style={styles.priceText}>{this.props.item.price}</Text>
+          <Text style={styles.priceText}>{this.props.item.price * this.props.item.quantity}</Text>
         </View>
       </View>
       </Swipeout>

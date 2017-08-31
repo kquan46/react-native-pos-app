@@ -24,7 +24,14 @@ class MenuActionsItem extends Component {
   render () {
     return (
       <View style={styles.menuActions}>
-        <View style={styles.placeholder} />
+      <View style={styles.selection}>
+        <Text style={styles.text}>食品:
+          {this.props.foodItem.ingredients.map(i => i.menuName)}
+          {this.props.foodItem.base ? this.props.foodItem.base.name : null}</Text>
+      </View>
+      <View style={styles.selection}>
+        <Text style={styles.text}>飲品: {this.props.drinkItem.drink ? this.props.drinkItem.drink.menuName : null}</Text>
+      </View>
         <TouchableOpacity style={styles.button} onPress={() => {this.addItems(this.props.drinkItem, this.props.foodItem, this.props.order.orderNumber)}}>
           <Text>Add Item</Text>
         </TouchableOpacity>
@@ -60,8 +67,14 @@ const styles = StyleSheet.create({
       backgroundColor: "grey",
       padding: 15
     },
-    placeholder: {
-      flex: 4
+    selection: {
+      flex: 2,
+      justifyContent: "center",
+      alignItems: "flex-start",
+      padding: 20
+    },
+    text: {
+      fontSize: 22
     }
 })
 

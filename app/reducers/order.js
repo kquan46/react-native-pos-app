@@ -170,6 +170,11 @@ export function orders(state = [], action) {
         ...state.slice(0, orderIndex),
         {
           ...state[orderIndex],
+          orderInfo: {
+            ...state[orderIndex].orderInfo,
+            numOfItems: state[orderIndex].orderInfo.numOfItems + action.quantity,
+            totalPrice: state[orderIndex].orderInfo.totalPrice + (action.item.price * action.quantity)
+          },
           orderList: {
             ...state[orderIndex].orderList,
             foodItems: [
@@ -192,6 +197,11 @@ export function orders(state = [], action) {
         ...state.slice(0, orderIndex),
         {
           ...state[orderIndex],
+          orderInfo: {
+            ...state[orderIndex].orderInfo,
+            numOfItems: state[orderIndex].orderInfo.numOfItems + action.quantity,
+            totalPrice: state[orderIndex].orderInfo.totalPrice + (action.item.price * action.quantity)
+          },
           orderList: {
             ...state[orderIndex].orderList,
             drinkItems: [
@@ -213,6 +223,11 @@ export function orders(state = [], action) {
         ...state.slice(0, orderIndex),
         {
           ...state[orderIndex],
+          orderInfo: {
+            ...state[orderIndex].orderInfo,
+            numOfItems: state[orderIndex].orderInfo.numOfItems - action.item.quantity,
+            totalPrice: state[orderIndex].orderInfo.totalPrice - (action.item.price * action.item.quantity)
+          },
           orderList: {
             ...state[orderIndex].orderList,
             foodItems: state[orderIndex].orderList.foodItems.filter(i => i.name !== action.item.name)
@@ -227,6 +242,11 @@ export function orders(state = [], action) {
         ...state.slice(0, orderIndex),
         {
           ...state[orderIndex],
+          orderInfo: {
+            ...state[orderIndex].orderInfo,
+            numOfItems: state[orderIndex].orderInfo.numOfItems - action.item.quantity,
+            totalPrice: state[orderIndex].orderInfo.totalPrice - (action.item.price * action.item.quantity)
+          },
           orderList: {
             ...state[orderIndex].orderList,
             drinkItems: state[orderIndex].orderList.drinkItems.filter(i => i.name !== action.item.name)
@@ -274,7 +294,7 @@ export function foodItem(state = sampleData.FOOD_ITEM_DEFAULT, action) {
     case types.CLEAR_ITEM_BASE:
       return {...state, base: null}
     case types.SELECT_INGREDIENT:
-      return {...state, ingredients: [...state.ingredients, action.ingredientItem]}
+      return {...state, ingredients: [...state.ingredients, action.ingredientItem].sort(compare)}
     case types.DESELECT_INGREDIENT:
       return {...state, ingredients: state.ingredients.filter(i => i.name !== action.ingredientItem.name)}
     case types.SELECT_BASE:
@@ -313,4 +333,19 @@ function getTime() {
   var currentDate = new Date()
   var time = currentDate.toTimeString().split(' ')[0]
   return time
+}
+
+function compare(a, b) {
+  const orderList = {
+    "豬扒": 4,
+    "春卷": 3,
+    "雞翼": 2,
+    "扎肉": 1,
+    "雞絲": 0,
+  }
+  const nameA = orderList[a.name]
+  const nameB = orderList[b.name]
+
+  let comparison = nameB - nameA
+  return comparison
 }

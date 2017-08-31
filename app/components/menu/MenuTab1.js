@@ -23,6 +23,8 @@ class MenuTab1 extends Component {
     return result
   }
 
+
+
   render() {
     return (
       <View style={styles.menu}>

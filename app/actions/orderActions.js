@@ -236,7 +236,7 @@ export function addMealItem(foodItem, orderNumber) {
 }
 
 export function deleteItem(item, orderNumber) {
-  if (item.type === "regularFood" || item.type === "snacks")
+  if (item.type === "regularFood" || item.type === "snacks" || item.type === "meal")
     return {
       type: types.DELETE_ITEM_FOOD,
       item,
@@ -251,7 +251,7 @@ export function deleteItem(item, orderNumber) {
 }
 
 export function increaseQuantity(item, orderNumber) {
-  if (item.type === "regularFood" || item.type === "snacks") {
+  if (item.type === "regularFood" || item.type === "snacks" || item.type === "meal") {
     return {
       type: types.CHANGE_QUANTITY_FOOD,
       item,
@@ -270,7 +270,7 @@ export function increaseQuantity(item, orderNumber) {
 }
 
 export function decreaseQuantity(item, orderNumber) {
-  if (item.type === "regularFood" || item.type === "snacks") {
+  if (item.type === "regularFood" || item.type === "snacks" || item.type === "meal") {
     return {
       type: types.CHANGE_QUANTITY_FOOD,
       item,

@@ -44,16 +44,16 @@ class OrderActions extends Component {
     return (
       <View style={styles.orderActions}>
         <TouchableOpacity style={styles.button} onPress={() => this.toggleMenu()}>
-          {this.state.menuSelected ? <Text style={styles.text}>Back</Text> : <Text style={styles.text}>Menu</Text>}
+          {this.state.menuSelected ? <Text style={styles.text}>←</Text> : <Text style={styles.text}>餐牌</Text>}
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => {this.props.order.orderNumber ? this.cancelOrder() : null}}>
           <Text style={styles.text}>取消</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => null}>
-          <Text style={styles.text}>Print</Text>
+          <Text style={styles.text}>打印</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => {this.props.order.orderNumber ? this.payOrder() : null}}>
-          <Text style={styles.text}>Pay</Text>
+          <Text style={styles.text}>付款</Text>
         </TouchableOpacity>
       </View>
     )
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     },
     text: {
       color: "white",
-      fontSize: 18
+      fontSize: 20
     }
 })
 

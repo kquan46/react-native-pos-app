@@ -2,7 +2,7 @@ export const DELIVERY_ORDERS = [
   {
     orderNumber: 201612300005,
     orderType: "delivery",
-    orderInfo: {numOfItems: 4, totalPrice: 101, orderStatus: "notPaid", date: "2016/09/12", endTime: "", startTime: "12:30:54"},
+    orderInfo: {numOfItems: 6, totalPrice: 121, orderStatus: "notPaid", date: "2016/09/12", endTime: "", startTime: "12:30:54"},
     deliveryInfo: {deliveryAddress: "250鴨寮街", deliveryPhoneNumber: "2580 0983", notes: "extra chopsticks"},
     orderList: {
       foodItems: [
@@ -18,7 +18,7 @@ export const DELIVERY_ORDERS = [
   {
     orderNumber: 201611300004,
     orderType: "delivery",
-    orderInfo: {numOfItems: 7, totalPrice: 98, orderStatus: "notPaid", date: "2016/09/12", endTime: "", startTime: "13:09:15"},
+    orderInfo: {numOfItems: 6, totalPrice: 121, orderStatus: "notPaid", date: "2016/09/12", endTime: "", startTime: "13:09:15"},
     deliveryInfo: {deliveryAddress: "68南昌街", deliveryPhoneNumber: "6653 4621", notes: ""},
     orderList: {
       foodItems: [
@@ -37,7 +37,7 @@ export const TABLE_ORDERS = [
   {
     orderNumber: 201612300001,
     orderType: "table",
-    orderInfo: {numOfItems: 4, totalPrice: 101, orderStatus: "notPaid", date: "2016/09/12", endTime: "", startTime: "12:30:30"},
+    orderInfo: {numOfItems: 6, totalPrice: 121, orderStatus: "notPaid", date: "2016/09/12", endTime: "", startTime: "12:30:30"},
     tableInfo: {tableNumber: "2", tableSubNumber: "A", numOfPeople: 4},
     orderList: {
       foodItems: [
@@ -53,7 +53,7 @@ export const TABLE_ORDERS = [
  {
    orderNumber: 201612300002,
    orderType: "table",
-   orderInfo: {numOfItems: 2, totalPrice: 74, orderStatus: "notPaid", date: "2016/09/12", endTime: "", startTime: "18:30:01"},
+   orderInfo: {numOfItems: 3, totalPrice: 111, orderStatus: "notPaid", date: "2016/09/12", endTime: "", startTime: "18:30:01"},
    tableInfo: {tableNumber: "1", tableSubNumber: "D", numOfPeople: 3},
    orderList: {
      foodItems: [
@@ -66,7 +66,7 @@ export const TABLE_ORDERS = [
  {
    orderNumber: 201612300003,
    orderType: "table",
-   orderInfo: {numOfItems: 2, totalPrice: 46, orderStatus: "notPaid", date: "2016/09/12", endTime: "", startTime: "13:09:40"},
+   orderInfo: {numOfItems: 3, totalPrice: 74, orderStatus: "notPaid", date: "2016/09/12", endTime: "", startTime: "13:09:40"},
    tableInfo: {tableNumber: "1", tableSubNumber: "B", numOfPeople: 2},
    orderList: {
      foodItems: [],
@@ -81,7 +81,7 @@ export const TABLE_ORDERS = [
 export const ORDER_SAMPLE_DELIVERY = {
   orderNumber: 201612300005,
   orderType: "delivery",
-  orderInfo: {numOfItems: 4, totalPrice: 101, orderStatus: "notPaid", date: "2016/09/12", endTime: "", startTime: "12:30:54"},
+  orderInfo: {numOfItems: 6, totalPrice: 121, orderStatus: "notPaid", date: "2016/09/12", endTime: "", startTime: "12:30:54"},
   deliveryInfo: {deliveryAddress: "250鴨寮街", deliveryPhoneNumber: "2580 0983", notes: "extra chopsticks"},
   orderList: {
     foodItems: [
@@ -98,7 +98,7 @@ export const ORDER_SAMPLE_DELIVERY = {
 export const ORDER_SAMPLE_TABLE = {
   orderNumber: 201612300001,
   orderType: "table",
-  orderInfo: {numOfItems: 4, totalPrice: 101, orderStatus: "notPaid", date: "2016/09/12", endTime: "", startTime: "12:30:30"},
+  orderInfo: {numOfItems: 6, totalPrice: 121, orderStatus: "notPaid", date: "2016/09/12", endTime: "", startTime: "12:30:30"},
   tableInfo: {tableNumber: "2", tableSubNumber: "A", numOfPeople: 4},
   orderList: {
     foodItems: [
@@ -233,11 +233,11 @@ export const MENU_INGREDIENTS = [
   {name: "茄汁牛腩", menuName: "茄汁腩", shortName: "腩", type: "nonCombinations", miniSet: "no", price: 0},
   {name: "咖喱牛腩", menuName: "咖喱腩", shortName: "喱", type: "nonCombinations", miniSet: "no", price: 0},
   {name: "三寶", menuName: "三寶", shortName: "三宝", type: "nonCombinations", miniSet: "no", price: 2},
-  {name: "雞絲", menuName: "雞絲", shortName: "雞絲", type: "combinations", miniSet: "yes", price: 0},
-  {name: "春卷", menuName: "春卷", shortName: "春", type: "combinations", miniSet: "yes", price: 0},
   {name: "豬扒", menuName: "豬扒", shortName: "朱扒", type: "combinations", miniSet: "yes", price: 0},
+  {name: "春卷", menuName: "春卷", shortName: "春", type: "combinations", miniSet: "yes", price: 0},
   {name: "雞翼", menuName: "雞翼", shortName: "亦", type: "combinations", miniSet: "yes", price: 0},
   {name: "扎肉", menuName: "扎肉", shortName: "扎肉", type: "combinations", miniSet: "yes", price: 0},
+  {name: "雞絲", menuName: "雞絲", shortName: "雞絲", type: "combinations", miniSet: "yes", price: 0},
 ]
 
 export const MENU_SNACKS = [
