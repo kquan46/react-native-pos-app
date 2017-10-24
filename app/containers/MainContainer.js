@@ -6,14 +6,12 @@ import MainRouter from '../navigation/MainRouter'
 class MainContainer extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-    }
   }
 
   render () {
     return (
         <View style={styles.mainContainer}>
-          <MainRouter menu={this.props.menu} />
+          <MainRouter />
         </View>
     )
   }

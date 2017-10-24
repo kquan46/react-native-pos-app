@@ -10,8 +10,6 @@ import MenuItemBlank from './MenuItemBlank'
 class MenuListFood extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-    }
   }
 
   splitListBySize(size) {
@@ -52,8 +50,6 @@ class MenuListFood extends Component {
                   case "combinations":
                     return <MenuItemIngredient item={item} maxItems={maxItems} />
                   case "base":
-                    return <MenuItemBase item={item} />
-                  case "baseMiniSet":
                     return <MenuItemBase item={item} />
                   case "snacks":
                     return <MenuItemIngredient item={item} maxItems={maxItems}/>

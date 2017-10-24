@@ -1,6 +1,6 @@
 'use strict'
 import React, { Component } from 'react'
-import { StyleSheet } from 'react-native'
+import { View, StyleSheet, Text } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -13,14 +13,17 @@ import OrderContainer from '../containers/OrderContainer'
 class HomeScreen extends Component {
   constructor(props) {
     super(props)
+    this.props.fetchMenu()
   }
-
 
   render() {
     return (
       <RootContainer>
         <AppContainer>
-          <MainContainer menu={this.props.menu} />
+          <View>
+          {this.props.menu.isFetching && <Text>Loading Menu</Text>}
+          </View>
+          <MainContainer />
           <OrderContainer order={this.props.order} />
         </AppContainer>
       </RootContainer>

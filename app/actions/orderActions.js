@@ -109,9 +109,37 @@ export function newDeliveryOrder(deliveryAddress, deliveryPhoneNumber) {
   }
 }
 
-export function fetchOrders() {
+export function getOrders() {
   return {
-    type: types.FETCH_ORDERS
+    type: types.FETCHING_ORDERS
+  }
+}
+
+export function getOrdersSuccess(orders) {
+  return {
+    type: types.FETCHING_ORDERS_SUCCESS,
+    orders
+  }
+}
+
+export function getOrdersFailure() {
+  return {
+    type: types.FETCHING_ORDERS_FAILURE
+  }
+}
+
+export function fetchOrders() {
+  return (dispatch) => {
+    dispatch(getOrders())
+    fetch('https://nhatranghk.site/orders.php?function=getOrders')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        dispatch(getOrdersSuccess(responseJson))
+      })
+      .catch((error) => {
+        console.log(error)
+        dispatch(getOrdersFailure())
+      })
   }
 }
 
@@ -285,5 +313,39 @@ export function decreaseQuantity(item, orderNumber) {
       orderNumber,
       quantity: -1
     }
+  }
+}
+
+export function getMenu() {
+  return {
+    type: types.FETCHING_MENU
+  }
+}
+
+export function getMenuSuccess(menu) {
+  return {
+    type: types.FETCHING_MENU_SUCCESS,
+    menu
+  }
+}
+
+export function getMenuFailure() {
+  return {
+    type: types.FETCHING_MENU_FAILURE
+  }
+}
+
+export function fetchMenu() {
+  return (dispatch) => {
+    dispatch(getMenu())
+    fetch('https://nhatranghk.site/menu.php')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        dispatch(getMenuSuccess(responseJson))
+      })
+      .catch((error) => {
+        console.log(error)
+        dispatch(getMenuFailure())
+      })
   }
 }

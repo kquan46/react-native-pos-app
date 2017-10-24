@@ -55,7 +55,7 @@ class OrderItem extends Component {
           <Text style={styles.timeText}>{this.formatTime(this.props.item.orderTime)}</Text>
         </View>
         <View style={styles.customization}>
-          <Text style={styles.text}>{this.props.item.name}</Text>
+          <Text style={styles.itemText}>{this.props.item.name}</Text>
           <OrderItemCustomization customization={this.props.item.customization}/>
         </View>
         <View style={styles.quantity}>
@@ -127,6 +127,9 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 17,
     textAlign: "center"
+  },
+  itemText: {
+    fontSize: 17,
   },
   timeText: {
     fontSize: 14

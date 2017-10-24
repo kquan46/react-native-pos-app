@@ -1,6 +1,7 @@
 'use strict'
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, ListView } from 'react-native'
+import { connect } from 'react-redux'
 
 import MenuListFood from './MenuListFood'
 import MenuActionsItem from './MenuActionsItem'
@@ -17,11 +18,17 @@ class MenuTab3 extends Component {
     return (
       <View style={styles.menu}>
         <View style={styles.subMenu}>
-          <MenuListFood menuList={this.props.menuList.snacks} maxItems={1} />
+          <MenuListFood menuList={this.props.menu.snacks} maxItems={1} />
         </View>
         <MenuActionsItem />
       </View>
     )
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    menu: state.menu
   }
 }
 
@@ -39,4 +46,4 @@ const styles = StyleSheet.create({
   }
 })
 
-module.exports = MenuTab3
+module.exports = connect(mapStateToProps)(MenuTab3)

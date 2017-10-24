@@ -3,8 +3,10 @@ import * as sampleData from './data'
 
 export function orders(state = [], action) {
   switch (action.type) {
-    case types.FETCH_ORDERS:
-      return [...state, ...sampleData.DELIVERY_ORDERS, ...sampleData.TABLE_ORDERS]
+    case types.FETCHING_ORDERS_SUCCESS:
+      return [...action.orders]
+    case types.FETCHING_ORDERS_FAILURE:
+      return state
     case types.NEW_TABLE_ORDER:
       return [
           ...state,
@@ -104,6 +106,7 @@ export function orders(state = [], action) {
                 type: action.foodItem.ingredients[0].type,
                 quantity: action.foodItem.quantity,
                 price: action.foodItem.ingredients[0].price,
+                miniSet: action.foodItem.ingredients[0].miniSet,
                 orderTime: getTime(),
                 payStatus: "notPaid",
                 base: null,
@@ -153,6 +156,7 @@ export function orders(state = [], action) {
                 quantity: action.foodItem.quantity,
                 price: mealPrice,
                 orderTime: getTime(),
+                miniSet: 0,
                 payStatus: "notPaid",
                 base: action.foodItem.base,
                 ingredients: action.foodItem.ingredients
@@ -304,12 +308,47 @@ export function foodItem(state = sampleData.FOOD_ITEM_DEFAULT, action) {
   }
 }
 
-export function menu(state = [], action) {
+export function menu(state = sampleData.MENU_DEFAULT, action) {
   switch (action.type) {
-    default:
+    case types.FETCHING_MENU_SUCCESS:
+      return {
+        ...state,
+        base: action.menu.ingredients.filter(i => i.type === "base" && i.miniSet === 0),
+        baseMiniSet: action.menu.ingredients.filter(i => i.type === "base" && i.miniSet === 1),
+        drinks: action.menu.drinks.filter(i => i.type === "regularDrink"),
+        drinksMeal: action.menu.drinks.filter(i => i.type === "mealDrink"),
+        ingredients: action.menu.ingredients.filter(i => i.type === "nonCombinations" || i.type === "combinations"),
+        snacks: action.menu.ingredients.filter(i => i.type === "snacks"),
+        drinkCustomizations: action.menu.customDrinks,
+        foodCustomizations: action.menu.customFoods,
+        customizationPrefixes: action.menu.customPrefix,
+      }
+    case types.FETCHING_MENU_FAILURE:
      return sampleData.MENU_SAMPLE
+    default:
+     return state
   }
 }
+
+export function status(state = {menuFetching: false, ordersFetching: false}, action) {
+  switch (action.type) {
+    case types.FETCHING_MENU:
+      return {...state, menuFetching: true}
+    case types.FETCHING_MENU_SUCCESS:
+      return {...state, menuFetching: false}
+    case types.FETCHING_MENU_FAILURE:
+      return {...state, menuFetching: false}
+    case types.FETCHING_ORDERS:
+      return {...state, ordersFetching: true}
+    case types.FETCHING_ORDERS_SUCCESS:
+      return {...state, ordersFetching: false}
+    case types.FETCHING_ORDERS_FAILURE:
+      return {...state, ordersFetching: false}
+    default:
+     return state
+  }
+}
+
 function getOrderNumber(ordersLength) {
   var currentDate = new Date()
   var year = currentDate.getFullYear().toString()

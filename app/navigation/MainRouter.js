@@ -21,8 +21,6 @@ const TabIcon = ({ selected, title }) => {
 class MainRouter extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-    }
   }
 
   render() {
@@ -31,10 +29,10 @@ class MainRouter extends Component {
         <Scene tabs={false} key="root" animationEnabled={false}>
           <Scene key="tableAndDelivery" title="tableAndDelivery" component={TableAndDeliveryContainer} initial />
           <Scene key="menuTab" tabs={true}  default="tab1" tabBarStyle={styles.tabBar}>
-            <Scene key="tab1" title="粉麵/飯" icon={TabIcon} component={MenuTab1} menuList={this.props.menu} />
-            <Scene key="tab2" title="迷你餐" icon={TabIcon} component={MenuTab2} menuList={this.props.menu} />
-            <Scene key="tab3" title="小食" icon={TabIcon} component={MenuTab3} menuList={this.props.menu} />
-            <Scene key="tab4" title="飲品" icon={TabIcon} component={MenuTab4} menuList={this.props.menu} />
+            <Scene key="tab1" title="粉麵/飯" icon={TabIcon} component={MenuTab1} />
+            <Scene key="tab2" title="迷你餐" icon={TabIcon} component={MenuTab2} />
+            <Scene key="tab3" title="小食" icon={TabIcon} component={MenuTab3} />
+            <Scene key="tab4" title="飲品" icon={TabIcon} component={MenuTab4} />
           </Scene>
         </Scene>
       </Router>
