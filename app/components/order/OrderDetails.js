@@ -20,6 +20,10 @@ class OrderDetails extends Component {
         <OrderDetailsListHeading />
         <OrderDetailsList>
           {this.props.orderList.foodItems ? this.props.orderList.foodItems.map(i => <OrderItem item={i} key={i.name}/>) : null}
+          {this.props.orderList.foodItems.length > 0 ? <Text>
+
+
+            </Text> : null }
           {this.props.orderList.drinkItems ? this.props.orderList.drinkItems.map(i => <OrderItem item={i} key={i.name}/>) : null}
         </OrderDetailsList>
         <OrderDetailsTotal totalPrice={this.props.orderInfo.totalPrice} numOfItems={this.props.orderInfo.numOfItems} />
@@ -34,6 +38,9 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "space-between",
         backgroundColor: "beige",
+    },
+    text: {
+      fontSize: 20,
     }
 })
 

@@ -21,8 +21,7 @@ class MenuActionsMeal extends Component {
         this.props.findOrderAndAddDrinkItem(drinkItem, orderNumber)
       else if (foodItem.base) {
         if (foodItem.ingredients.length > 0) {
-          this.props.findOrderAndAddMealItem(foodItem, orderNumber)
-          this.props.findOrderAndAddDrinkItem(drinkItem, orderNumber)
+          this.props.findOrderAndAddMealAndDrinkItem(foodItem, drinkItem, orderNumber)
         }
         else console.log("missing ingredients")
       }

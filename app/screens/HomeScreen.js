@@ -20,9 +20,6 @@ class HomeScreen extends Component {
     return (
       <RootContainer>
         <AppContainer>
-          <View>
-          {this.props.menu.isFetching && <Text>Loading Menu</Text>}
-          </View>
           <MainContainer />
           <OrderContainer order={this.props.order} />
         </AppContainer>
@@ -38,7 +35,6 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     order: state.order,
-    menu: state.menu
   }
 }
 

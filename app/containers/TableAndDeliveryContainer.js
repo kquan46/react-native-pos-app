@@ -34,6 +34,7 @@ class TableAndDeliveryContainer extends Component {
   render () {
     return (
         <View style={styles.tableAndDeliveryContainer}>
+          {this.props.status.ordersFetching || this.props.status.menuFetching ? <Text>Loading Data From Server</Text> : null}
           <Delivery deliveryDetailsList={this.getOrders("delivery")} />
           <TableList tableList={this.getOrders("table")} />
         </View>
@@ -47,7 +48,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    orders: state.orders
+    orders: state.orders,
+    status: state.status
   }
 }
 const styles = StyleSheet.create({
@@ -56,7 +58,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "stretch",
-        backgroundColor: "brown",
+        backgroundColor: "orange",
     }
 })
 

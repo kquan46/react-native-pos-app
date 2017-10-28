@@ -21,6 +21,8 @@ export function orders(state = [], action) {
             }
           }
         ]
+    case types.REFRESH_ORDERS:
+      return action.orders
     case types.NEW_DELIVERY_ORDER:
       return [
           ...state,
@@ -35,21 +37,8 @@ export function orders(state = [], action) {
             }
           }
         ]
-    case types.CHANGE_ORDER_STATUS: {
-      let index = state.findIndex((order) => order.orderNumber === action.orderNumber)
-      return [
-        ...state.slice(0, index),
-        {
-          ...state[index],
-          orderInfo: {
-            ...state[index].orderInfo,
-            orderStatus: action.orderStatus,
-            endTime: getTime()
-          }
-        },
-        ...state.slice(index + 1)
-      ]
-    }
+    case types.CHANGE_ORDER_STATUS:
+      return action.orders
     case types.ADD_ITEM_DRINK: {
       let index = state.findIndex((order) => order.orderNumber === action.orderNumber)
       return [

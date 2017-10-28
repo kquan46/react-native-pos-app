@@ -14,7 +14,7 @@ class OrderActions extends Component {
     }
   }
   payOrder() {
-   this.props.payOrder(this.props.order.orderNumber)
+   this.props.payOrder(this.props.order)
   }
   cancelOrder() {
    this.props.cancelOrder(this.props.order.orderNumber)
