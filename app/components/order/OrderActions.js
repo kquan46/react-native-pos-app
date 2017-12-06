@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 import * as orderActions from '../../actions/orderActions'
 import { Actions } from 'react-native-router-flux'
 
-class OrderActions extends Component {
+export class OrderActions extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -89,4 +89,4 @@ const styles = StyleSheet.create({
     }
 })
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(OrderActions)
+module.exports.default = connect(mapStateToProps, mapDispatchToProps)(OrderActions)

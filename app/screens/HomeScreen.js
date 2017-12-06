@@ -9,11 +9,12 @@ import RootContainer from '../containers/RootContainer'
 import AppContainer from '../containers/AppContainer'
 import MainContainer from '../containers/MainContainer'
 import OrderContainer from '../containers/OrderContainer'
+//import IphoneContainer from '../containers/IphoneContainer'
 
 class HomeScreen extends Component {
   constructor(props) {
     super(props)
-    this.props.fetchMenu()
+    {/*this.props.fetchMenu()*/}
   }
 
   render() {
@@ -21,6 +22,9 @@ class HomeScreen extends Component {
       <RootContainer>
         <AppContainer>
           <MainContainer />
+          {/*<View style={{flex: 1, backgroundColor: "white"}} />
+          <IphoneContainer />
+          <View style={{flex: 1, backgroundColor: "white"}} />*/}
           <OrderContainer order={this.props.order} />
         </AppContainer>
       </RootContainer>
