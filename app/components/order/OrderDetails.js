@@ -19,12 +19,12 @@ class OrderDetails extends Component {
       <View style={styles.orderDetails}>
         <OrderDetailsListHeading />
         <OrderDetailsList>
-          {this.props.orderList.foodItems ? this.props.orderList.foodItems.map(i => <OrderItem item={i} key={i.name}/>) : null}
-          {this.props.orderList.foodItems.length > 0 ? <Text>
+          {this.props.orderList.foodItems ? this.props.orderList.foodItems.filter(i => i.payStatus === "notPaid").map(i => <OrderItem item={i} key={i.name}/>) : null}
+          {this.props.orderList.foodItems ? this.props.orderList.foodItems.filter(i =>i.payStatus === "notPaid").length > 0 ? <Text>
 
 
-            </Text> : null }
-          {this.props.orderList.drinkItems ? this.props.orderList.drinkItems.map(i => <OrderItem item={i} key={i.name}/>) : null}
+            </Text> : null : null}
+          {this.props.orderList.drinkItems ? this.props.orderList.drinkItems.filter(i => i.payStatus === "notPaid").map(i => <OrderItem item={i} key={i.name}/>) : null}
         </OrderDetailsList>
         <OrderDetailsTotal totalPrice={this.props.orderInfo.totalPrice} numOfItems={this.props.orderInfo.numOfItems} />
       </View>
